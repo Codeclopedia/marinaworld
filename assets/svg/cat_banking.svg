@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44">
+  <g id="bank" transform="translate(-2 -2)">
+    <path id="Path_5283" data-name="Path 5283" d="M42,18a.945.945,0,0,0,1-1V14h2a.945.945,0,0,0,1-1V9a1.2,1.2,0,0,0-.7-1l-21-6h-.6L2.7,8A1.2,1.2,0,0,0,2,9v4a.945.945,0,0,0,1,1H5v3a.945.945,0,0,0,1,1H7V36H6a.945.945,0,0,0-1,1v3H3a.945.945,0,0,0-1,1v4a.945.945,0,0,0,1,1H45a.945.945,0,0,0,1-1V41a.945.945,0,0,0-1-1H43V37a.945.945,0,0,0-1-1H41V18ZM4,9.8,24,4,44,9.7V12H4ZM41,14v2H7V14ZM27,36V18h8V36ZM13,36V18h8V36ZM23,18h2V36H23ZM9,18h2V36H9ZM44,44H4V42H44ZM7,40V38H41v2Zm32-4H37V18h2Z" fill="#0088c4"/>
+    <circle id="Ellipse_315" data-name="Ellipse 315" cx="2" cy="2" r="2" transform="translate(22 6)" fill="#0088c4"/>
+    <circle id="Ellipse_316" data-name="Ellipse 316" cx="1" cy="1" r="1" transform="translate(16 8)" fill="#0088c4"/>
+    <circle id="Ellipse_317" data-name="Ellipse 317" cx="1" cy="1" r="1" transform="translate(30 8)" fill="#0088c4"/>
+  </g>
+</svg>

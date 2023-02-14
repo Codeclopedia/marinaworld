@@ -1,0 +1,246 @@
+{
+
+    "login_greetings":"Hi, Welcome Back! 👋",
+    "login_message":"Login to your Account",
+    "login_username_caption":"Username",
+    "login_username_hint":"Please Enter Your Username",
+    "login_username_empty":"Username can't be empty",
+    "login_username_invalid":"Invalid Username",
+    "login_password_caption":"Password",
+    "login_password_hint":"Please Enter Your Password",
+    "login_password_empty":"Password can't be empty",
+    "login_password_invalid":"Invalid Password",
+    "login_btx_forgot_password_":"Forgot Password?",
+    "login_btn_signin":"Login",
+    "login_check_remember":"Remember Me",
+    "login_footer_no_account":"Don't have an account?",
+    "login_btx_login_faceid":"Login with Face ID",
+    "login_btx_signup":" Sign Up ",
+
+
+
+    "login_btx_login_otp":"Login with OTP",
+
+    "otp_login_header_title":"Login with OTP",
+    "otp_login_mobile_caption":"Mobile Number",
+    "otp_login_otp_caption":"Enter OTP",
+    "otp_login_btn_send":"Send OTP",
+    "otp_login_btn_verify":"Verify OTP",
+    "otp_login_btn_resend":"Resend OTP",
+    
+    "otp_login_txt_in_seconds":"Resend OTP in {time} seconds",
+    "login_btx_login_password":"Login with Password",
+    "msg_otp_sent":"OTP sent successfully",
+    "msg_unknown_error":"Unknown Error",
+  
+
+    "signup_greetings":"Create an account",
+    "signup_message":"Sign up for a new account",
+    "signup_email_caption":"Email",
+    "signup_email_hint":"Please Enter Your Email Address",
+    "signup_email_empty":"Email address can't be empty",
+    "signup_email_invalid":"Invalid Email address",
+    "signup_password_caption":"Password",
+    "signup_password_hint":"Please enter new password",
+    "signup_password_empty":"Password can't be empty",
+    "signup_password_invalid":"Invalid Password",
+
+
+    "signup_cnf_password_caption":"Confirm Password",
+    "signup_cnf_password_hint":"Please enter Confirm password",
+    "signup_cnf_password_empty":"Confirm Password can't be empty",
+    "signup_cnf_password_invalid":"Confirm password should match with password",
+    "change_pass_title":"Reset new password",
+    "change_pass_caption":"Your OTP verified successfully,\nNow Please enter new password to set password for ",
+
+
+    "signup_name_caption":"Full Name",
+
+    "signup_mobile_caption":"Mobile Number",
+    "signup_mobile_hint":"Please enter your Mobile number",
+    "signup_mobile_empty":"Mobile Number can't be empty",
+    "signup_mobile_invalid":"Invalid Mobile number",
+
+    "signup_gender_caption":"Gender",
+    "signup_gender_hint":"Select a gender",
+    "signup_gender_option_male":"Male",
+    "signup_gender_option_female":"Female",
+    "signup_gender_option_other":"Other",
+    "signup_dob_caption":"Date of Birth",
+    "signup_dob_hint":"MM/DD/YYYY",
+    "signup_nationality_caption":"Nationality",
+    "signup_nationality_hint":"Please choose your Nationality",
+    "signup_btn_create_account":"Create Account",
+    "signup_footer_have_account":"Already have an account?",
+    "signup_btx_signin":" Sign In ",
+
+    "verifyotp_greeting":"OTP verification",
+    "verifyotp_message":"Verify",
+    "verifyotp_otp_caption":"Enter the OTP",
+    "verifyotp_btx_resend_otp":"Resend OTP",
+    "verifyotp_txt_wait":"Resend OTP in 59 Seconds",
+    "verifyotp_error_invalid":"Invalid OTP entered",
+    "verifyotp_back":"Back to sign up",
+    "verifyotp_btn_submit":"Submit",
+
+
+
+    "clang_greeting":"Choose Language",
+    "clang_message":"Select",
+    "clang_caption":"Language",
+    "clang_hint":"Please choose a language",
+    "clang_btn_submit":"Submit",
+
+    "edit_profile_title":"Edit Profile",
+
+    
+    "fp_header_title":"Forgot Password",
+    "fp_desc_mobile_message":"Enter the mobile number associated with your account and we'll send an otp to reset your password.",
+    "fp_desc_message":"Enter the email associated with your account and we'll send an email with instructions to reset your password.",
+    "fp_email_caption":"Email Address",
+    "fp_email_hint":"Enter Your Email Address",
+    "fp_email_empty":"Email address can't be empty",
+    "fp_email_invalid":"Invalid Email Address",
+    "fp_btn_submit":"Submit",
+    "fp_btx_login_back":"Back to Login",
+    "fp_btx_explore":"Explore First",
+
+
+    "nav_home":"Home",
+    "nav_map":"Mall Map",
+
+    "menu_about_us":"About us",
+    "menu_stores":"Stores",
+    "menu_dining":"Dining",
+    "menu_events":"Events",
+    "menu_offers":"Offers and Promotions",
+    "menu_leasing":"Leasing",
+    "menu_gallery":"Gallery",
+    "menu_opening_hr":"Opening hours",
+    "menu_contact":"Contact",
+    "menu_choose_lang":"Change Language",
+    "menu_logout":"Logout",
+
+    "home_sec_category":"Browse by category",
+    "home_sec_brand":"Truly Great Brands",
+    "home_sec_dining":"Dining",
+    "home_sec_promo":"Promotions and offers",
+    "home_sec_event":"Upcoming events",
+
+    "txt_categories":"Categories",
+    "dtl_about":"About",
+    "dtl_opening":"Opening Hours",
+    "dtl_weekday":"Weekday {open} - {close}",
+    "dtl_weekend":"Weekend {open} - {close}",
+    "dtl_location":"Location",
+    "dtl_number":"Contact Number",
+
+    "home_welcome":"Welcome to",
+    "home_mall":"Marina World",
+    "about_mallname":"Marinaworld",
+
+
+    "dining_empty":"No Dining",
+    "dining_error":"Error while loading Dining",
+    
+    "stores_empty":"No Stores",
+    "stores_error":"Error while loading Stores",
+
+    "offer_empty":"No Offers",
+    "event_empty":"No Events",
+    
+    "btn_navigate":"Navigate",
+    "btn_explore":"Explore",
+    "btn_view_all":"View All",
+    "txt_floor":"{floor} Floor",
+
+
+    "heading_search_store":"Locate Store",
+    "heading_search_dinig":"Locate Dining",
+    "search_hint_name":"Search by name",
+    "search_all_cat":"All Categories",
+    "search_all_loc":"All Locations",
+    "search_all_flr":"All Floors",
+    
+    "heading_search_result":"Search Result",
+
+    "placeholder_search_empty":"No Result",
+    "heading_offers":"OFFERS",
+    "heading_events":"LATEST EVENTS",
+
+
+    "oh_retailer":"All Retailers",
+    "oh_retailer_time":"10:00 AM - 10:00 PM (Weekdays)\n10:00 AM - 11:00 PM (Weekends)",
+
+    "oh_rest":"Restaurants Inside The Mall",
+    "oh_rest_time":"09:00 AM - 10:00 PM",
+
+
+    "oh_movie":"Cinescape",
+    "oh_movie_time":"12:00 PM - Midnight",
+
+
+    "oh_hotel":"Restaurants N Crescent Side",
+    "oh_hotel_time":"07:00 AM - 11:00 PM",
+
+    "btx_share":"Share:",
+
+    "logout_title":"Log Out",
+    "logout_msg":"Are you sure want to logout from your account?",
+    "logout_btx_yes":"Yes",
+    "logout_btx_no":"Cancel",
+
+    "leasing_title":"Leasing",
+    "leasing_heading":"Please fill in maximum details and our representative will call you soon.",
+    
+    "leasing_name_hint":"Applicant's Name",
+    "leasing_area_hint":"Area Required (approx m²)",
+    "leasing_intended_hint":"Intentded Use",
+    "leasing_brand_hint":"Brand Name",
+    "leasing_file_caption":" Document/ Business Profile",
+    "leasing_file_btn":"Choose File",
+    "leasing_file_hint":"No File Choosen",
+    "leasing_contact_caption":"Contact Details",
+    "leasing_contact_address_hint":"Address",
+    "leasing_contact_phone_hint":"Phone Number",
+    "leasing_contact_fax_hint":"Fax",
+    "leasing_contact_email_hint":"Email Address",
+    "leasing_contact_otherloc_hint":"Other Locations",
+    "leasing_contact_otherbuz_hint":"Other Businesses",
+
+    "leasing_field_empty_error":"Field can't be empty",
+    "error_result":"Error occurred while sumitting details\nPlease try again later",
+
+    "floor_ground":"Ground Floor",
+    "floor_first":"1st Floor",
+    "floor_second":"2nd Floor",
+    "floor_required":"Floor Required",
+
+    "thankyou_title":"Thank you for showing interest in Marina World",
+    "thankyou_message":"Our representative will get back to you. In the meantime, feel free to explore your interest in the app and see how Marina World can bring joy to your life.",
+    "btn_ok":"Ok",
+
+    "contact_title":"Contact Us",
+    "contact_desc":"Please fill in the below form to connect with us.",
+    "contact_hint_name":"Your Full Name",
+    "contact_hint_phone":"Your Phone Number",
+    "contact_hint_email":"Your Email Address",
+    "contact_hint_message":"Message",
+    "contact_btx_locate":"Locate on Map",
+
+    
+    "contact_name_empty":"Name can't be empty",
+    "contact_name_invalid":"Name can't be this short",
+    "contact_message_empty":"Message can't be empty",
+    "contact_message_invalid":"Message can't be this short",
+
+    "contact_info_location":"Location",
+    "contact_info_email":"Email Id",
+    "contact_info_contact":"Contact Number",
+
+    "mall_about":"Set along Kuwait’s coastline, Marina World is a landmark mixed-use development owned by United Real Estate Company K.S.C.P (URC), located in one of Kuwait’s main shopping districts. This development is anchored by Marina Mall, a contemporary shopping mall having 165 shops. The Mall is connected by a glass-enclosed bridge to Marina Crescent, a seafront component lined with international cafes and restaurants.\n\nThe development extends along the sea front to include a walking pathway and three additional retail developments known as Marina Waves, Marina Waterfront and Marina Walk, which provide its customers with prime views of the Gulf. The Marina houses, the Marina Yacht Club, an exclusive serviced club with space of 144 berths. Overlooking the Yacht Club is Marina Hotel, a prestigious 5-star hotel situated directly on the beach with ready access to the Marina Mall and Marina Crescent. The Marina also includes the multi-function Salwa Sabah Al Ahmed Ball Room.",
+    "mall_about_span1":"Marinal World at a ",
+    "mall_about_span2":"Glance",
+    "mall_about_footer":"Explore the most iconic destination on Kuwait’s coastline"
+
+}
