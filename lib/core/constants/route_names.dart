@@ -12,6 +12,7 @@ class RouteNames {
   static const String verifyOtp = '/verify-otp';
   // static const String verifyOtpForget = '/verify-forgot-otp';
   static const String forgetPassword = '/forget-password';
+  static const String resetPassword = '/reset-password';
   static const String changePassword = '/change-password';
 
   static const String chooseLanguage = '/choose-language';

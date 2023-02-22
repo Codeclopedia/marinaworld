@@ -460,10 +460,10 @@ class S {
     );
   }
 
-  /// `Reset new password`
+  /// `Reset your password`
   String get change_pass_title {
     return Intl.message(
-      'Reset new password',
+      'Reset your password',
       name: 'change_pass_title',
       desc: '',
       args: [],
@@ -475,6 +475,16 @@ class S {
     return Intl.message(
       'Your OTP verified successfully,\nNow Please enter new password to set password for ',
       name: 'change_pass_caption',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Salem Mubarak Street, Gulf Road, Kuwait`
+  String get location {
+    return Intl.message(
+      'Salem Mubarak Street, Gulf Road, Kuwait',
+      name: 'location',
       desc: '',
       args: [],
     );
@@ -780,10 +790,10 @@ class S {
     );
   }
 
-  /// `Edit Profile`
+  /// `Profile`
   String get edit_profile_title {
     return Intl.message(
-      'Edit Profile',
+      'Profile',
       name: 'edit_profile_title',
       desc: '',
       args: [],
@@ -885,6 +895,26 @@ class S {
     return Intl.message(
       'Explore First',
       name: 'fp_btx_explore',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Submit`
+  String get contact_us_submit {
+    return Intl.message(
+      'Submit',
+      name: 'contact_us_submit',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Submit`
+  String get change_language_submit {
+    return Intl.message(
+      'Submit',
+      name: 'change_language_submit',
       desc: '',
       args: [],
     );
@@ -1160,11 +1190,101 @@ class S {
     );
   }
 
-  /// `Marinaworld`
+  /// `Marina World`
   String get about_mallname {
     return Intl.message(
-      'Marinaworld',
+      'Marina World',
       name: 'about_mallname',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Marina`
+  String get about_mallname_part1 {
+    return Intl.message(
+      'Marina',
+      name: 'about_mallname_part1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ` World`
+  String get about_mallname_part2 {
+    return Intl.message(
+      ' World',
+      name: 'about_mallname_part2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Area`
+  String get about_area {
+    return Intl.message(
+      'Area',
+      name: 'about_area',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Brands`
+  String get about_brand {
+    return Intl.message(
+      'Brands',
+      name: 'about_brand',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Shops`
+  String get about_shop {
+    return Intl.message(
+      'Shops',
+      name: 'about_shop',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Dining`
+  String get about_dining {
+    return Intl.message(
+      'Dining',
+      name: 'about_dining',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cafe`
+  String get about_cafe {
+    return Intl.message(
+      'Cafe',
+      name: 'about_cafe',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Entertainment`
+  String get about_entertainment {
+    return Intl.message(
+      'Entertainment',
+      name: 'about_entertainment',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `m`
+  String get about_m {
+    return Intl.message(
+      'm',
+      name: 'about_m',
       desc: '',
       args: [],
     );
@@ -1330,6 +1450,56 @@ class S {
     );
   }
 
+  /// `Search your country name`
+  String get search_country {
+    return Intl.message(
+      'Search your country name',
+      name: 'search_country',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Something went wrong. Please try again later`
+  String get error {
+    return Intl.message(
+      'Something went wrong. Please try again later',
+      name: 'error',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `WhatsApp`
+  String get whatsapp_title {
+    return Intl.message(
+      'WhatsApp',
+      name: 'whatsapp_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Contact on WhatsApp`
+  String get whatsapp_message {
+    return Intl.message(
+      'Contact on WhatsApp',
+      name: 'whatsapp_message',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Something went wrong. Make sure you have whatsapp installed in your phone`
+  String get whatsapp_not_installed {
+    return Intl.message(
+      'Something went wrong. Make sure you have whatsapp installed in your phone',
+      name: 'whatsapp_not_installed',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Search Result`
   String get heading_search_result {
     return Intl.message(
@@ -1410,6 +1580,16 @@ class S {
     );
   }
 
+  /// `Change Password`
+  String get change_password {
+    return Intl.message(
+      'Change Password',
+      name: 'change_password',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Cinescape`
   String get oh_movie {
     return Intl.message(
@@ -1430,10 +1610,10 @@ class S {
     );
   }
 
-  /// `Restaurants N Crescent Side`
+  /// `Restaurants On Crescent Side`
   String get oh_hotel {
     return Intl.message(
-      'Restaurants N Crescent Side',
+      'Restaurants On Crescent Side',
       name: 'oh_hotel',
       desc: '',
       args: [],
@@ -1450,10 +1630,40 @@ class S {
     );
   }
 
-  /// `Share:`
+  /// `Invalid DOB`
+  String get DOB_empty_error {
+    return Intl.message(
+      'Invalid DOB',
+      name: 'DOB_empty_error',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `DD/MM/YYYY`
+  String get DOB_hint_text {
+    return Intl.message(
+      'DD/MM/YYYY',
+      name: 'DOB_hint_text',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Search for an Country Name...`
+  String get search_country_hint {
+    return Intl.message(
+      'Search for an Country Name...',
+      name: 'search_country_hint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Share`
   String get btx_share {
     return Intl.message(
-      'Share:',
+      'Share',
       name: 'btx_share',
       desc: '',
       args: [],
@@ -1520,6 +1730,16 @@ class S {
     );
   }
 
+  /// `Leasing Opportunities With us. If you want a large audience to see your brand and buy what you have to offer, there is no better option than setting up a store at Marina Mall. We provide superior services for shopping centre leasing in Salmiya to help you get the maximum value out of your investment. Our team takes into account your specific requirements and then recommends the best way options for store leasing. We offer complete support to our clients from the start till after we get your store up and running. Shopping centre leasing in Salmiya has never been easier than at Marina Mall. Together, we will help your brand reach the highest peak of business achievements, offering our support at every step.`
+  String get leasing_description {
+    return Intl.message(
+      'Leasing Opportunities With us. If you want a large audience to see your brand and buy what you have to offer, there is no better option than setting up a store at Marina Mall. We provide superior services for shopping centre leasing in Salmiya to help you get the maximum value out of your investment. Our team takes into account your specific requirements and then recommends the best way options for store leasing. We offer complete support to our clients from the start till after we get your store up and running. Shopping centre leasing in Salmiya has never been easier than at Marina Mall. Together, we will help your brand reach the highest peak of business achievements, offering our support at every step.',
+      name: 'leasing_description',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Applicant's Name`
   String get leasing_name_hint {
     return Intl.message(
@@ -1540,10 +1760,10 @@ class S {
     );
   }
 
-  /// `Intentded Use`
+  /// `Intended Use`
   String get leasing_intended_hint {
     return Intl.message(
-      'Intentded Use',
+      'Intended Use',
       name: 'leasing_intended_hint',
       desc: '',
       args: [],
@@ -1720,6 +1940,16 @@ class S {
     );
   }
 
+  /// `Thank you for your message. We have received it and a specialist from our team will contact you shortly to discuss further details about your queries.`
+  String get thankyou_message_leasing {
+    return Intl.message(
+      'Thank you for your message. We have received it and a specialist from our team will contact you shortly to discuss further details about your queries.',
+      name: 'thankyou_message_leasing',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Thank you for showing interest in Marina World`
   String get thankyou_title {
     return Intl.message(
@@ -1765,6 +1995,26 @@ class S {
     return Intl.message(
       'Please fill in the below form to connect with us.',
       name: 'contact_desc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Connect With Us`
+  String get contact_subheading {
+    return Intl.message(
+      'Connect With Us',
+      name: 'contact_subheading',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `To provide feedback or suggestions, please fill in the below form to connect with us.`
+  String get contact_note {
+    return Intl.message(
+      'To provide feedback or suggestions, please fill in the below form to connect with us.',
+      name: 'contact_note',
       desc: '',
       args: [],
     );

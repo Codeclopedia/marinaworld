@@ -95,7 +95,7 @@ class AuthDataSourceImpl extends AuthDataSource {
 
   @override
   Future<String?> register(String name, String email, String password,
-      String phone, String gender, DateTime dob) async {
+      String phone, String gender, DateTime dob, String nationality) async {
     bool isFilled = !DateUtils.isSameDay(dob, DateTime.now());
     String dobStr = '';
     if (isFilled) {
@@ -110,8 +110,8 @@ class AuthDataSourceImpl extends AuthDataSource {
     if (gender != S.current.signup_gender_hint) {
       gen = gender;
     }
-    RegisterResponse response =
-        await api.register(name, email, password, phone, gen, dobStr);
+    RegisterResponse response = await api.register(
+        name, email, password, phone, gen, dobStr, nationality);
 
     if (response.status == 'success' && response.data != null) {
       final pref = await SharedPreferences.getInstance();

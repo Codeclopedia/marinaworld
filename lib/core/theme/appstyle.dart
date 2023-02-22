@@ -3,12 +3,12 @@ import 'package:pinput/pinput.dart';
 import '../constants.dart';
 import '../ui_core.dart';
 
-const kFontFamily = 'manrope';
+String kFontFamily = 'euclid-circular';
 
 TextStyle get screenHeaderTitleStyle => TextStyle(
       fontSize: 17.sp,
       fontFamily: kFontFamily,
-      fontWeight: FontWeight.w600,
+      fontWeight: FontWeight.w500,
       color: Colors.black,
     );
 
@@ -21,7 +21,7 @@ TextStyle get normalTextStyle => TextStyle(
 TextStyle get captionTextStyle => TextStyle(
       fontFamily: kFontFamily,
       fontSize: 11.sp,
-      fontWeight: FontWeight.w600,
+      fontWeight: FontWeight.w500,
       color: const Color(0xFF999EA1),
     );
 //
@@ -77,7 +77,7 @@ InputDecoration get inputDecorationStyle => InputDecoration(
         fontFamily: kFontFamily,
         fontSize: 10.sp,
         color: AppColors.hintTextColor,
-        fontWeight: FontWeight.w600,
+        fontWeight: FontWeight.w400,
       ),
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12.0),
@@ -101,7 +101,7 @@ InputDecoration searchInputDirectionStyle = InputDecoration(
     fontFamily: kFontFamily,
     fontSize: 11.sp,
     color: AppColors.hintTextColor,
-    fontWeight: FontWeight.w600,
+    fontWeight: FontWeight.w500,
   ),
   enabledBorder: OutlineInputBorder(
     borderRadius: BorderRadius.circular(12.0),
@@ -125,9 +125,9 @@ InputDecoration get formFieldInputDecoration => InputDecoration(
           EdgeInsets.only(left: 4.w, right: 4.w, top: 4.w, bottom: 4.w),
       hintStyle: TextStyle(
         fontFamily: kFontFamily,
-        fontSize: 11.sp,
+        fontSize: 10.sp,
         color: AppColors.hintTextColor,
-        fontWeight: FontWeight.w600,
+        fontWeight: FontWeight.w400,
       ),
       focusColor: Colors.white,
       enabledBorder: OutlineInputBorder(
@@ -196,12 +196,14 @@ final PinTheme submittedPinTheme = defaultPinTheme.copyWith(
 
 final TextStyle homeCaptionStyle = TextStyle(
   color: AppColors.black,
-  fontWeight: FontWeight.w700,
+  fontWeight: FontWeight.w500,
+  fontFamily: kFontFamily,
   fontSize: 12.sp,
 );
 
 final TextStyle homeViewAllStyle = TextStyle(
   color: AppColors.black,
   fontWeight: FontWeight.w500,
+  fontFamily: kFontFamily,
   fontSize: 9.sp,
 );

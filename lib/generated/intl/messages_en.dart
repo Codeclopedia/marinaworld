@@ -30,16 +30,32 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "about_mallname": MessageLookupByLibrary.simpleMessage("Marinaworld"),
+        "DOB_empty_error": MessageLookupByLibrary.simpleMessage("Invalid DOB"),
+        "DOB_hint_text": MessageLookupByLibrary.simpleMessage("DD/MM/YYYY"),
+        "about_area": MessageLookupByLibrary.simpleMessage("Area"),
+        "about_brand": MessageLookupByLibrary.simpleMessage("Brands"),
+        "about_cafe": MessageLookupByLibrary.simpleMessage("Cafe"),
+        "about_dining": MessageLookupByLibrary.simpleMessage("Dining"),
+        "about_entertainment":
+            MessageLookupByLibrary.simpleMessage("Entertainment"),
+        "about_m": MessageLookupByLibrary.simpleMessage("m"),
+        "about_mallname": MessageLookupByLibrary.simpleMessage("Marina World"),
+        "about_mallname_part1": MessageLookupByLibrary.simpleMessage("Marina"),
+        "about_mallname_part2": MessageLookupByLibrary.simpleMessage(" World"),
+        "about_shop": MessageLookupByLibrary.simpleMessage("Shops"),
         "btn_explore": MessageLookupByLibrary.simpleMessage("Explore"),
         "btn_navigate": MessageLookupByLibrary.simpleMessage("Navigate"),
         "btn_ok": MessageLookupByLibrary.simpleMessage("Ok"),
         "btn_view_all": MessageLookupByLibrary.simpleMessage("View All"),
-        "btx_share": MessageLookupByLibrary.simpleMessage("Share:"),
+        "btx_share": MessageLookupByLibrary.simpleMessage("Share"),
+        "change_language_submit":
+            MessageLookupByLibrary.simpleMessage("Submit"),
         "change_pass_caption": MessageLookupByLibrary.simpleMessage(
             "Your OTP verified successfully,\nNow Please enter new password to set password for "),
         "change_pass_title":
-            MessageLookupByLibrary.simpleMessage("Reset new password"),
+            MessageLookupByLibrary.simpleMessage("Reset your password"),
+        "change_password":
+            MessageLookupByLibrary.simpleMessage("Change Password"),
         "clang_btn_submit": MessageLookupByLibrary.simpleMessage("Submit"),
         "clang_caption": MessageLookupByLibrary.simpleMessage("Language"),
         "clang_greeting":
@@ -71,7 +87,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Name can\'t be empty"),
         "contact_name_invalid":
             MessageLookupByLibrary.simpleMessage("Name can\'t be this short"),
+        "contact_note": MessageLookupByLibrary.simpleMessage(
+            "To provide feedback or suggestions, please fill in the below form to connect with us."),
+        "contact_subheading":
+            MessageLookupByLibrary.simpleMessage("Connect With Us"),
         "contact_title": MessageLookupByLibrary.simpleMessage("Contact Us"),
+        "contact_us_submit": MessageLookupByLibrary.simpleMessage("Submit"),
         "dining_empty": MessageLookupByLibrary.simpleMessage("No Dining"),
         "dining_error":
             MessageLookupByLibrary.simpleMessage("Error while loading Dining"),
@@ -81,8 +102,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "dtl_opening": MessageLookupByLibrary.simpleMessage("Opening Hours"),
         "dtl_weekday": m0,
         "dtl_weekend": m1,
-        "edit_profile_title":
-            MessageLookupByLibrary.simpleMessage("Edit Profile"),
+        "edit_profile_title": MessageLookupByLibrary.simpleMessage("Profile"),
+        "error": MessageLookupByLibrary.simpleMessage(
+            "Something went wrong. Please try again later"),
         "error_result": MessageLookupByLibrary.simpleMessage(
             "Error occurred while sumitting details\nPlease try again later"),
         "event_empty": MessageLookupByLibrary.simpleMessage("No Events"),
@@ -145,6 +167,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Other Locations"),
         "leasing_contact_phone_hint":
             MessageLookupByLibrary.simpleMessage("Phone Number"),
+        "leasing_description": MessageLookupByLibrary.simpleMessage(
+            "Leasing Opportunities With us. If you want a large audience to see your brand and buy what you have to offer, there is no better option than setting up a store at Marina Mall. We provide superior services for shopping centre leasing in Salmiya to help you get the maximum value out of your investment. Our team takes into account your specific requirements and then recommends the best way options for store leasing. We offer complete support to our clients from the start till after we get your store up and running. Shopping centre leasing in Salmiya has never been easier than at Marina Mall. Together, we will help your brand reach the highest peak of business achievements, offering our support at every step."),
         "leasing_field_empty_error":
             MessageLookupByLibrary.simpleMessage("Field can\'t be empty"),
         "leasing_file_btn": MessageLookupByLibrary.simpleMessage("Choose File"),
@@ -155,10 +179,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "leasing_heading": MessageLookupByLibrary.simpleMessage(
             "Please fill in maximum details and our representative will call you soon."),
         "leasing_intended_hint":
-            MessageLookupByLibrary.simpleMessage("Intentded Use"),
+            MessageLookupByLibrary.simpleMessage("Intended Use"),
         "leasing_name_hint":
             MessageLookupByLibrary.simpleMessage("Applicant\'s Name"),
         "leasing_title": MessageLookupByLibrary.simpleMessage("Leasing"),
+        "location": MessageLookupByLibrary.simpleMessage(
+            "Salem Mubarak Street, Gulf Road, Kuwait"),
         "login_btn_signin": MessageLookupByLibrary.simpleMessage("Login"),
         "login_btx_forgot_password_":
             MessageLookupByLibrary.simpleMessage("Forgot Password?"),
@@ -226,8 +252,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "nav_home": MessageLookupByLibrary.simpleMessage("Home"),
         "nav_map": MessageLookupByLibrary.simpleMessage("Mall Map"),
         "offer_empty": MessageLookupByLibrary.simpleMessage("No Offers"),
-        "oh_hotel":
-            MessageLookupByLibrary.simpleMessage("Restaurants N Crescent Side"),
+        "oh_hotel": MessageLookupByLibrary.simpleMessage(
+            "Restaurants On Crescent Side"),
         "oh_hotel_time":
             MessageLookupByLibrary.simpleMessage("07:00 AM - 11:00 PM"),
         "oh_movie": MessageLookupByLibrary.simpleMessage("Cinescape"),
@@ -258,6 +284,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("All Categories"),
         "search_all_flr": MessageLookupByLibrary.simpleMessage("All Floors"),
         "search_all_loc": MessageLookupByLibrary.simpleMessage("All Locations"),
+        "search_country":
+            MessageLookupByLibrary.simpleMessage("Search your country name"),
+        "search_country_hint": MessageLookupByLibrary.simpleMessage(
+            "Search for an Country Name..."),
         "search_hint_name":
             MessageLookupByLibrary.simpleMessage("Search by name"),
         "signup_btn_create_account":
@@ -323,6 +353,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Error while loading Stores"),
         "thankyou_message": MessageLookupByLibrary.simpleMessage(
             "Our representative will get back to you. In the meantime, feel free to explore your interest in the app and see how Marina World can bring joy to your life."),
+        "thankyou_message_leasing": MessageLookupByLibrary.simpleMessage(
+            "Thank you for your message. We have received it and a specialist from our team will contact you shortly to discuss further details about your queries."),
         "thankyou_title": MessageLookupByLibrary.simpleMessage(
             "Thank you for showing interest in Marina World"),
         "txt_categories": MessageLookupByLibrary.simpleMessage("Categories"),
@@ -340,6 +372,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "verifyotp_otp_caption":
             MessageLookupByLibrary.simpleMessage("Enter the OTP"),
         "verifyotp_txt_wait":
-            MessageLookupByLibrary.simpleMessage("Resend OTP in 59 Seconds")
+            MessageLookupByLibrary.simpleMessage("Resend OTP in 59 Seconds"),
+        "whatsapp_message":
+            MessageLookupByLibrary.simpleMessage("Contact on WhatsApp"),
+        "whatsapp_not_installed": MessageLookupByLibrary.simpleMessage(
+            "Something went wrong. Make sure you have whatsapp installed in your phone"),
+        "whatsapp_title": MessageLookupByLibrary.simpleMessage("WhatsApp")
       };
 }

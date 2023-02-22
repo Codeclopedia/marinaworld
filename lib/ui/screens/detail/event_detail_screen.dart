@@ -23,7 +23,7 @@ class EventDetailScreen extends StatelessWidget {
         child: Column(
           children: [
             const TopBarSearch(
-              path: 'assets/images/events_bg.png',
+              path: 'assets/images/image_2023_02_16T07_08_10_867Z.png',
               index: -1,
               bgColor: Colors.white,
             ),
@@ -62,51 +62,70 @@ class EventDetailScreen extends StatelessWidget {
                         )),
                     SizedBox(height: 4.h),
                     Text(
-                      (isArabic ? events.titleAr : events.title)
-                              ?.toUpperCase() ??
-                          '',
+                      DateFormat('dd MMMM, y').format(start ?? DateTime.now()),
                       style: TextStyle(
                           fontFamily: kFontFamily,
-                          fontSize: 15.sp,
-                          fontWeight: FontWeight.w700,
+                          fontSize: 9.sp,
+                          fontWeight: FontWeight.w400,
+                          color: Colors.grey),
+                    ),
+                    SizedBox(height: 1.h),
+
+                    Text(
+                      (isArabic ? events.titleAr : events.title) ?? '',
+                      style: TextStyle(
+                          fontFamily: kFontFamily,
+                          fontSize: 20.sp,
+                          fontWeight: FontWeight.w500,
                           color: Colors.black),
                     ),
-                    if (start != null) SizedBox(height: 2.h),
-                    if (start != null)
-                      Container(
-                        padding: EdgeInsets.symmetric(
-                            horizontal: 4.w, vertical: 2.w),
-                        decoration: BoxDecoration(
-                          color: AppColors.primaryColor,
-                          borderRadius: BorderRadius.all(Radius.circular(2.w)),
-                          boxShadow: const [
-                            BoxShadow(
-                                color: Color(0x40000000),
-                                offset: Offset(0, 4),
-                                blurRadius: 11)
-                          ],
-                        ),
-
-                        // style: ElevatedButton.styleFrom(
-                        //     elevation: 2,
-                        //     backgroundColor: AppColors.primaryColor,
-                        //     foregroundColor: Colors.white),
-                        child: Text(
-                          DateFormat('dd MMMM, y').format(start),
-                          style: TextStyle(
-                              fontFamily: kFontFamily,
-                              fontSize: 11.sp,
-                              fontWeight: FontWeight.w700,
-                              color: Colors.white),
-                        ),
-                      ),
                     SizedBox(height: 2.h),
+
+                    InkWell(
+                      onTap: () {
+                        print(events.descriptionAr);
+                      },
+                      child: Text(
+                        (isArabic
+                                ? events.descriptionAr
+                                : events.description) ??
+                            '',
+                        style: TextStyle(
+                            fontFamily: kFontFamily,
+                            fontSize: 10.sp,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.black),
+                      ),
+                    ),
+                    // if (start != null) SizedBox(height: 2.h),
+                    // if (start != null)
+                    //   Container(
+                    //     padding: EdgeInsets.symmetric(
+                    //         horizontal: 4.w, vertical: 2.w),
+                    //     decoration: BoxDecoration(
+                    //       color: AppColors.primaryColor,
+                    //       borderRadius: BorderRadius.all(Radius.circular(2.w)),
+                    //       boxShadow: const [
+                    //         BoxShadow(
+                    //             color: Color(0x40000000),
+                    //             offset: Offset(0, 4),
+                    //             blurRadius: 11)
+                    //       ],
+                    //     ),
+
+                    //     // style: ElevatedButton.styleFrom(
+                    //     //     elevation: 2,
+                    //     //     backgroundColor: AppColors.primaryColor,
+                    //     //     foregroundColor: Colors.white),
+                    //     child:
+                    //   ),
+                    SizedBox(height: 4.h),
                     Text(
-                      S.current.btx_share.toUpperCase(),
+                      S.current.btx_share,
                       style: TextStyle(
                         fontFamily: kFontFamily,
-                        fontSize: 12.sp,
-                        fontWeight: FontWeight.w700,
+                        fontSize: 9.sp,
+                        fontWeight: FontWeight.w400,
                         color: Colors.black,
                       ),
                     ),

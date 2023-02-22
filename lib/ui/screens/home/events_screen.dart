@@ -20,8 +20,9 @@ class EventsScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const TopBarSearch(path: 'assets/images/events_bg.png', index: -1),
-            SizedBox(height: 2.h),
+            const TopBarSearch(
+                path: 'assets/images/LAtest-Events.jpg', index: -1),
+            SizedBox(height: 1.h),
             Padding(
               padding: EdgeInsets.only(left: 6.w, right: 6.w),
               child: Text(
@@ -29,11 +30,12 @@ class EventsScreen extends StatelessWidget {
                 style: TextStyle(
                   fontFamily: kFontFamily,
                   color: Colors.black,
-                  fontSize: 11.sp,
-                  fontWeight: FontWeight.w700,
+                  fontSize: 13.sp,
+                  fontWeight: FontWeight.w500,
                 ),
               ),
             ),
+            SizedBox(height: 2.h),
             Consumer(
               builder: (context, ref, child) {
                 bool isArabic = ref.watch(languageStateProvider) == langArabic;
@@ -166,7 +168,7 @@ class EventsScreen extends StatelessWidget {
               style: TextStyle(
                 color: Colors.black,
                 fontSize: 8.sp,
-                fontWeight: FontWeight.w700,
+                fontWeight: FontWeight.w500,
                 fontFamily: kFontFamily,
               ),
             ),

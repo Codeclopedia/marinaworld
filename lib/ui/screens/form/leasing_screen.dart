@@ -1,6 +1,9 @@
 // ignore_for_file: prefer_const_constructors_in_immutables, use_build_context_synchronously
 
+import 'dart:ui';
+
 import 'package:file_picker/file_picker.dart';
+import 'package:marina_mall/controller/dataproviders.dart';
 import '/core/utils.dart';
 import '/data/network/api_service.dart';
 import '/ui/screens/base_back_screen.dart';
@@ -11,12 +14,6 @@ import '../../widgets/app_top_bar.dart';
 import '../../widgets/bottom_bar.dart';
 import '/core/ui_core.dart';
 
-final listFloors = [
-  S.current.floor_ground,
-  S.current.floor_first,
-  S.current.floor_second,
-];
-
 final attachedFile = StateProvider.autoDispose<PlatformFile?>((_) => null);
 
 final selectedFloorProvider = StateProvider.autoDispose<String?>((_) => null);
@@ -26,6 +23,11 @@ class LeasingScreen extends HookWidget {
 
   final formKey = GlobalKey<FormState>();
 
+  final listFloors = [
+    S.current.floor_ground,
+    S.current.floor_first,
+    S.current.floor_second,
+  ];
   @override
   Widget build(BuildContext context) {
     final TextEditingController nameController = useTextEditingController();
@@ -63,7 +65,7 @@ class LeasingScreen extends HookWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const TopBarSearch(
-              path: 'assets/images/events_bg.png',
+              path: 'assets/images/Leasing-Banner.jpg',
               index: -1,
             ),
             Padding(
@@ -74,7 +76,7 @@ class LeasingScreen extends HookWidget {
                   fontFamily: kFontFamily,
                   color: Colors.black,
                   fontSize: 14.sp,
-                  fontWeight: FontWeight.w700,
+                  fontWeight: FontWeight.w500,
                 ),
               ),
             ),
@@ -94,6 +96,23 @@ class LeasingScreen extends HookWidget {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   mainAxisSize: MainAxisSize.max,
                   children: [
+                    // SizedBox(height: 2.h),
+                    // Consumer(builder: (context, ref, child) {
+                    //   bool isArabic =
+                    //       ref.watch(languageStateProvider) == langArabic;
+                    //   return isArabic
+                    //       ? Container()
+                    //       : Text(
+                    //           S.current.leasing_description,
+                    //           textAlign: TextAlign.justify,
+                    //           style: TextStyle(
+                    //             fontFamily: kFontFamily,
+                    //             color: const Color(0xFF8D8D8D),
+                    //             fontSize: 11.sp,
+                    //             fontWeight: FontWeight.w400,
+                    //           ),
+                    //         );
+                    // }),
                     SizedBox(height: 2.h),
                     Text(
                       S.current.leasing_heading,
@@ -101,7 +120,7 @@ class LeasingScreen extends HookWidget {
                         fontFamily: kFontFamily,
                         color: const Color(0xFF8D8D8D),
                         fontSize: 11.5.sp,
-                        fontWeight: FontWeight.w600,
+                        fontWeight: FontWeight.w500,
                       ),
                     ),
                     SizedBox(height: 2.h),
@@ -345,7 +364,8 @@ class LeasingScreen extends HookWidget {
                               hideLoading(ref);
 
                               if (result.status != 'error') {
-                                await showSuccessDialog(context);
+                                await showSuccessDialog(context,
+                                    S.current.thankyou_message_leasing);
 
                                 // AppSnackbar.instance.message(
                                 //     context, 'Form Submitted successfully');
@@ -363,7 +383,7 @@ class LeasingScreen extends HookWidget {
                               }
                             }
                           },
-                          child: Text(S.current.fp_btn_submit));
+                          child: Text(S.current.clang_btn_submit));
                     }),
                     SizedBox(height: 3.h),
                   ],
@@ -430,11 +450,13 @@ class LeasingScreen extends HookWidget {
         hint: Container(
           // width: 75.w,
           // width: double.infinity,
-          padding: EdgeInsets.only(left: 4.w),
+          padding: EdgeInsets.only(
+            left: 4.w,
+          ),
           child: Text(
             S.current.floor_required,
             style: hintTextStyle.copyWith(
-              fontWeight: FontWeight.w700,
+              fontWeight: FontWeight.w500,
               color: Colors.black54,
             ),
           ),
@@ -452,25 +474,28 @@ class LeasingScreen extends HookWidget {
       controller: controller,
       autocorrect: inputType != TextInputType.emailAddress,
       keyboardType: inputType,
-      decoration: formFieldInputDecoration.copyWith(hintText: hint),
+      decoration: formFieldInputDecoration.copyWith(
+          hintText: hint,
+          hintStyle: TextStyle(fontWeight: FontWeight.w400, fontSize: 10.sp)),
       validator: validator,
     );
   }
 
-  Future showSuccessDialog(BuildContext context) {
+  Future showSuccessDialog(BuildContext context, String message) {
     return showDialog(
         context: context,
         builder: (context) => Dialog(
               backgroundColor: Colors.white,
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.all(Radius.circular(3.w))),
-              child: const SuccessDialog(),
+              child: SuccessDialog(message: message),
             ));
   }
 }
 
 class SuccessDialog extends StatelessWidget {
-  const SuccessDialog({Key? key}) : super(key: key);
+  final String message;
+  const SuccessDialog({Key? key, required this.message}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -498,7 +523,7 @@ class SuccessDialog extends StatelessWidget {
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 1.w),
             child: Text(
-              S.current.thankyou_message,
+              message,
               textAlign: TextAlign.center,
               style: TextStyle(
                   fontFamily: kFontFamily,

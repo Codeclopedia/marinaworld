@@ -21,7 +21,7 @@ class GalleryScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const TopBarSearch(path: 'assets/images/gallery_bg.png', index: -1),
-            SizedBox(height: 2.h),
+            SizedBox(height: 1.h),
             Padding(
               padding: EdgeInsets.only(left: 6.w, bottom: 2.w, right: 6.w),
               child: Text(
@@ -29,11 +29,12 @@ class GalleryScreen extends StatelessWidget {
                 style: TextStyle(
                   fontFamily: kFontFamily,
                   color: Colors.black,
-                  fontSize: 11.sp,
-                  fontWeight: FontWeight.w700,
+                  fontSize: 13.sp,
+                  fontWeight: FontWeight.w500,
                 ),
               ),
             ),
+            SizedBox(height: 2.h),
             Consumer(
               builder: (context, ref, child) {
                 bool isArabic = ref.watch(languageStateProvider) == langArabic;

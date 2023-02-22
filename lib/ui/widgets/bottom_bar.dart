@@ -97,19 +97,22 @@ class BottomBar extends StatelessWidget {
             height: 24,
             fit: BoxFit.cover,
           ),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 2.w),
-            child: Text(
-              label,
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-              style: TextStyle(
-                color: selected ? AppColors.primaryColor : Colors.black,
-                fontSize: 6.sp,
-                fontWeight: FontWeight.w500,
+          Consumer(builder: (context, ref, child) {
+            bool isArabic = ref.watch(languageStateProvider) == langArabic;
+            return Padding(
+              padding: EdgeInsets.symmetric(horizontal: 2.w),
+              child: Text(
+                label,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(
+                  color: selected ? AppColors.primaryColor : Colors.black,
+                  fontSize: isArabic ? 8.sp : 6.sp,
+                  fontWeight: FontWeight.w500,
+                ),
               ),
-            ),
-          )
+            );
+          })
         ],
       ),
     );

@@ -35,7 +35,7 @@ class SearchStoreScreen extends HookWidget {
               child: _searchBar(),
             ),
           ),
-          SizedBox(height: 2.h),
+          SizedBox(height: 1.h),
           Padding(
             padding: EdgeInsets.only(left: 6.w),
             child: Text(
@@ -43,11 +43,12 @@ class SearchStoreScreen extends HookWidget {
               style: TextStyle(
                 fontFamily: kFontFamily,
                 color: Colors.black,
-                fontSize: 11.sp,
-                fontWeight: FontWeight.w700,
+                fontSize: 13.sp,
+                fontWeight: FontWeight.w500,
               ),
             ),
           ),
+          SizedBox(height: 2.h),
           Expanded(
             child: _buildBody(),
           ),
@@ -99,8 +100,9 @@ class SearchStoreScreen extends HookWidget {
                 width: 6.w,
               ),
               title: Text(
-                  (isArabic ? suggestion.titleAr : suggestion.title) ?? ''),
-              subtitle: Text(suggestion.locName ?? ''),
+                (isArabic ? suggestion.titleAr : suggestion.title) ?? '',
+              ),
+              subtitle: Text(suggestion.locName.toString()),
               trailing: const Icon(
                 Icons.chevron_right,
                 color: Colors.black,
@@ -195,7 +197,7 @@ class SearchStoreScreen extends HookWidget {
             padding: EdgeInsets.symmetric(horizontal: 6.w, vertical: 1.h),
             child: Text(
               alphabet,
-              style: const TextStyle(
+              style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontFamily: kFontFamily,
                   fontSize: 18,

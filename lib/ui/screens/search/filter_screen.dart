@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter_svg/svg.dart';
 import '/controller/dataproviders.dart';
 import '/core/state.dart';
@@ -14,6 +16,7 @@ final selectedCategories =
 final selectedLocations = StateProvider.autoDispose<Locations?>((ref) => null);
 // final selectedStore = StateProvider.autoDispose<Stores?>((ref) => null);
 final selectedFloor = StateProvider.autoDispose<String?>((ref) => null);
+final selectedFloorApiData = StateProvider<String?>((ref) => null);
 // final searchParam = StateProvider.autoDispose<String>((ref) => '');
 
 class SearchFilterScreen extends StatelessWidget {
@@ -54,6 +57,7 @@ class SearchFilterScreen extends StatelessWidget {
 
   Widget _buildBody() {
     return Consumer(builder: (context, ref, child) {
+      final isArabic = ref.read(languageStateProvider);
       if (isDining) {
         return ref.watch(diningProvider).when(
             data: (data) {
@@ -65,10 +69,25 @@ class SearchFilterScreen extends StatelessWidget {
                   [];
               final List<Locations> locations = data.locations ?? [];
               final List<String> floors =
-                  (data.dinings?.map((e) => e.floor ?? '').toSet() ?? {})
+                  (data.dinings?.map((e) => e.floor.toString()).toSet() ?? {})
                       .toList();
+              final List<String> floor = [];
+              floors.every(
+                (element) {
+                  element == "All Floors" || element == null
+                      ? floor.add(S.current.search_all_flr)
+                      : element == "ground"
+                          ? floor.add(S.current.floor_ground)
+                          : element == "1st"
+                              ? floor.add(S.current.floor_first)
+                              : element == "2nd"
+                                  ? floor.add(S.current.floor_second)
+                                  : null;
+                  return true;
+                },
+              );
               return _buildSearchParams(
-                  context, ref, cats, locations, floors, data.dinings ?? []);
+                  context, ref, cats, locations, floor, data.dinings ?? []);
             },
             error: (e, t) => buildEmptyLoading('Error while loading'),
             loading: () => buildLoading);
@@ -83,11 +102,26 @@ class SearchFilterScreen extends StatelessWidget {
                     ?.where((element) => (element.id ?? 0) != 2))?.toList() ??
                 [];
             final List<Locations> locations = data.locations ?? [];
-
             final List<String> floors =
-                (data.stores?.map((e) => e.floor ?? '').toSet() ?? {}).toList();
+                (data.stores?.map((e) => e.floor.toString()).toSet() ?? {})
+                    .toList();
+            final List<String> floor = [];
+            floors.every(
+              (element) {
+                element == "All Floors" || element == null
+                    ? floor.add(S.current.search_all_flr)
+                    : element == "ground"
+                        ? floor.add(S.current.floor_ground)
+                        : element == "1st"
+                            ? floor.add(S.current.floor_first)
+                            : element == "2nd"
+                                ? floor.add(S.current.floor_second)
+                                : null;
+                return true;
+              },
+            );
             return _buildSearchParams(
-                context, ref, cats, locations, floors, data.stores ?? []);
+                context, ref, cats, locations, floor, data.stores ?? []);
             // final selectedCat = ref.watch(selectedCategories);
           },
           error: (e, t) => buildEmptyLoading('Error while loading'),
@@ -116,9 +150,9 @@ class SearchFilterScreen extends StatelessWidget {
               ? S.current.heading_search_dinig
               : S.current.heading_search_store,
           style: TextStyle(
-            fontSize: 11.sp,
+            fontSize: 13.sp,
             fontFamily: kFontFamily,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w500,
           ),
         ),
         SizedBox(height: 6.w),
@@ -140,8 +174,21 @@ class SearchFilterScreen extends StatelessWidget {
         _buildCategoriesDropDown(isArabic, [null, ...cats], selectedCat,
             (v) => ref.read(selectedCategories.notifier).state = v),
         SizedBox(height: 4.w),
-        _buildFloorDropDown(isArabic, [null, ...floors], selectedFlr,
-            (v) => ref.read(selectedFloor.notifier).state = v),
+        _buildFloorDropDown(isArabic, [null, ...floors], selectedFlr, (v) {
+          String value = v == S.current.search_all_flr
+              ? "All Floors"
+              : v == S.current.floor_ground
+                  ? "ground"
+                  : v == S.current.floor_first
+                      ? "1st"
+                      : v == S.current.floor_second
+                          ? "2nd"
+                          : "";
+          print("value of floor $value");
+          ref.read(selectedFloor.notifier).state = v;
+          ref.read(selectedFloorApiData.notifier).state = value;
+          print(ref.watch(selectedFloorApiData));
+        }),
         SizedBox(height: 4.w),
         _buildLocationsDropDown(isArabic, [null, ...locations], selectedLoc,
             (v) => ref.read(selectedLocations.notifier).state = v),
@@ -153,8 +200,9 @@ class SearchFilterScreen extends StatelessWidget {
               onPressed: () {
                 // String term = _controller.text.trim();
                 // term,
+                print("floor api data ${ref.watch(selectedFloorApiData)}");
                 final result = _doFilter(context, isArabic, selectedCat,
-                    selectedLoc, selectedFlr, stores);
+                    selectedLoc, ref.watch(selectedFloorApiData), stores);
                 Navigator.pushNamed(context, RouteNames.searchResult,
                     arguments: result);
                 // _goHome(context, ref);
@@ -202,7 +250,7 @@ class SearchFilterScreen extends StatelessWidget {
     ).toList();
   }
 
-  Widget _buildStoresDropDown(bool isArabic, List<Stores?> options,
+  Widget buildStoresDropDown(bool isArabic, List<Stores?> options,
       Stores? value, Function(Stores?) onChanged) {
     return Container(
       height: 12.w,

@@ -5,6 +5,7 @@ import 'package:dio/dio.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/foundation.dart';
 import 'package:marina_mall/data/models/response/auth/register_sms_response.dart';
+import 'package:marina_mall/data/models/response/country_data_response.dart';
 
 import '../../generated/l10n.dart';
 import '../models/models.dart';
@@ -32,7 +33,7 @@ class ApiService {
   Future<LoginOTPResponse> loginOtp(String phone) async {
     final data = {
       'phone': phone,
-      // 'request_access': 'allow',
+      //'request_access': 'allow',
     };
     try {
       final response =
@@ -62,7 +63,7 @@ class ApiService {
     final data = {
       'phone': phone,
       'otp': otp,
-      // 'request_access': 'allow',
+      //'request_access': 'allow',
     };
     try {
       final response =
@@ -108,8 +109,29 @@ class ApiService {
     return LoginResponse(status: 'error', message: S.current.msg_unknown_error);
   }
 
+  Future<CountriesDataResponse> getCountriesdata() async {
+    try {
+      final response = await _dio.get('${baseUrl}all-countries');
+      print('Response: ${response.data}');
+
+      if (response.statusCode == 200) {
+        return CountriesDataResponse.fromJson(response.data);
+      } else {
+        return CountriesDataResponse(
+            status: 'error',
+            message: 'Error:${response.statusCode}- ${response.statusMessage}');
+        // Helper.showMessage(response.statusMessage);
+
+      }
+    } catch (e) {
+      print(e);
+    }
+    return CountriesDataResponse(
+        status: 'error', message: S.current.msg_unknown_error);
+  }
+
   Future<RegisterResponse> register(String name, String email, String password,
-      String phone, String gender, String dob) async {
+      String phone, String gender, String dob, String nationality) async {
     final data = {
       'name': name,
       'email': email,
@@ -117,7 +139,8 @@ class ApiService {
       'phone': phone,
       'gender': gender,
       'dob': dob,
-      // 'request_access': 'allow',
+      'nationality': nationality,
+      //'request_access': 'allow',
 
       // 'nationality': nationality
     };
@@ -144,7 +167,7 @@ class ApiService {
   Future<RegisterSMSResponse> sendOtp(String phone) async {
     final data = {
       'phone': phone,
-      // 'request_access': 'allow',
+      //'request_access': 'allow',
     };
     try {
       final response = await _dio.post('${baseUrl}user/reset-sms', data: data);
@@ -167,7 +190,7 @@ class ApiService {
     final data = {
       'phone': phone,
       'otp': otp,
-      // 'request_access': 'allow',
+      //'request_access': 'allow',
     };
     try {
       final response = await _dio.post('${baseUrl}user/checkotp', data: data);
@@ -184,7 +207,7 @@ class ApiService {
   Future<BaseResponse> forgotPassword(String phone) async {
     final data = {
       'phone': phone,
-      // 'request_access': 'allow',
+      //'request_access': 'allow',
     };
     try {
       //https://www.marinaworld.com.kw/api/user/forgot-password
@@ -209,7 +232,7 @@ class ApiService {
     final data = {
       'phone': phone,
       'otp': otp,
-      // 'request_access': 'allow',
+      //'request_access': 'allow',
     };
     try {
       final response = await _dio.post('${baseUrl}user/varify-otp', data: data);
@@ -257,6 +280,7 @@ class ApiService {
             message: '${response.statusCode}- ${response.statusMessage}');
       }
     } catch (e) {
+      print("gethome()");
       print('Error $e');
       return HomeResponse(status: 'error', message: 'Unknown error -$e');
     }
@@ -271,12 +295,14 @@ class ApiService {
       } else {
         // print('error response ${jsonEncode(response.data)}');
         return StoresResponse(
-            status: 'error',
-            message: '${response.statusCode}- ${response.statusMessage}');
+          status: 'error',
+        );
       }
     } catch (e) {
-      print('Error $e');
-      return StoresResponse(status: 'error', message: 'Unknown error -$e');
+      print('Error in get stores $e');
+      return StoresResponse(
+        status: 'error',
+      );
     }
   }
 
@@ -294,7 +320,7 @@ class ApiService {
             message: '${response.statusCode}- ${response.statusMessage}');
       }
     } catch (e) {
-      print('Error $e');
+      print('Error in get dining $e');
       return DiningResponse(status: 'error', message: 'Unknown error -$e');
     }
   }

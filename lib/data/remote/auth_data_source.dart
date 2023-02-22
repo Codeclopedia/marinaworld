@@ -11,7 +11,7 @@ abstract class AuthDataSource {
   User? getUser();
 
   Future<String?> register(String name, String email, String password,
-      String phone, String gender, DateTime dob);
+      String phone, String gender, DateTime dob, String nationality);
 
   Future<String?> submitRegisterOTP(String phone, String otp);
 

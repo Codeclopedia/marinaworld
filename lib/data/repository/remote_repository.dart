@@ -1,4 +1,5 @@
 import 'package:intl/intl.dart';
+import 'package:marina_mall/data/models/response/country_data_response.dart';
 // import 'package:marina_mall/data/models/response/gallery_response.dart';
 // import 'package:marina_mall/data/models/response/home_response.dart';
 
@@ -42,6 +43,15 @@ class RemoteRepository {
     final result = await api.getDining();
     if (result.status == successfull && result.body != null) {
       return result.body;
+    }
+    return null;
+  }
+
+  Future<List<Countries>?> getcountriesData() async {
+    final result = await api.getCountriesdata();
+    print("result in repo $result");
+    if (result.status == successfull && result.data != null) {
+      return result.data;
     }
     return null;
   }

@@ -24,7 +24,7 @@ class HomeDiningScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const TopBarSearch(
-            path: 'assets/images/dining_bg.png',
+            path: 'assets/images/Dinning-Banner.jpg',
             index: 1,
           ),
           Padding(
@@ -37,8 +37,8 @@ class HomeDiningScreen extends StatelessWidget {
                   style: TextStyle(
                     fontFamily: kFontFamily,
                     color: Colors.black,
-                    fontSize: 11.sp,
-                    fontWeight: FontWeight.w700,
+                    fontSize: 13.sp,
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
                 const Spacer(),

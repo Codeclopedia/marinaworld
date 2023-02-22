@@ -29,8 +29,8 @@ class OpeningHourScreen extends StatelessWidget {
                     style: TextStyle(
                       fontFamily: kFontFamily,
                       color: Colors.black,
-                      fontSize: 11.sp,
-                      fontWeight: FontWeight.w700,
+                      fontSize: 13.sp,
+                      fontWeight: FontWeight.w500,
                     ),
                   ),
                   SizedBox(height: 4.h),
@@ -77,7 +77,7 @@ class OpeningHourScreen extends StatelessWidget {
                     fontFamily: kFontFamily,
                     color: Colors.black,
                     fontSize: 11.sp,
-                    fontWeight: FontWeight.w700),
+                    fontWeight: FontWeight.w500),
               ),
               SizedBox(height: 0.8.w),
               Text(
@@ -90,9 +90,6 @@ class OpeningHourScreen extends StatelessWidget {
               )
             ],
           ),
-        ),
-        SizedBox(
-          width: 25.w,
         ),
       ],
     );

@@ -92,7 +92,7 @@ class HomeScreen extends HookWidget {
                     },
                     error: (er, st) =>
                         buildEmptyLoading('Error while loading app'),
-                    loading: () => _buildLoading());
+                    loading: () => _buildLoading(isArabic));
               },
             ),
             // const BottomBar(currentIndex: 0),
@@ -108,7 +108,7 @@ class HomeScreen extends HookWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        _buildSection(S.current.home_sec_category, () {
+        _buildSection(S.current.home_sec_category, isArabic, () {
           Navigator.pushNamed(context, RouteNames.categories);
         }),
 
@@ -117,7 +117,7 @@ class HomeScreen extends HookWidget {
             ? _buildCategories(body.categories!, body, isArabic)
             : _buildContentNone(S.current.stores_empty),
 
-        _buildSection(S.current.home_sec_brand, () {
+        _buildSection(S.current.home_sec_brand, isArabic, () {
           Navigator.pushNamedAndRemoveUntil(
               context, RouteNames.stores, (route) => route.isFirst);
         }),
@@ -126,21 +126,21 @@ class HomeScreen extends HookWidget {
         body.stores?.isNotEmpty == true
             ? _buildBrands(body.stores!, isArabic)
             : _buildContentNone(S.current.stores_empty),
-        _buildSection(S.current.home_sec_dining, () {
+        _buildSection(S.current.home_sec_dining, isArabic, () {
           Navigator.pushNamedAndRemoveUntil(
               context, RouteNames.dining, (route) => route.isFirst);
         }),
         body.dinings?.isNotEmpty == true
             ? _buildBrands(body.dinings!, isArabic)
             : _buildContentNone(S.current.dining_empty),
-        _buildSection(S.current.home_sec_promo, () {
+        _buildSection(S.current.home_sec_promo, isArabic, () {
           Navigator.pushNamed(context, RouteNames.offers);
         }),
         body.offers?.isNotEmpty == true
-            ? _buildPromotions(body.offers!)
+            ? _buildPromotions(body.offers!, isArabic)
             : _buildContentNone(S.current.offer_empty),
         // _promotions(),
-        _buildSection(S.current.home_sec_event, () {
+        _buildSection(S.current.home_sec_event, isArabic, () {
           Navigator.pushNamed(context, RouteNames.events);
         }),
         body.events?.isNotEmpty == true
@@ -150,25 +150,27 @@ class HomeScreen extends HookWidget {
     );
   }
 
-  Widget _buildLoading() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        _buildSection(S.current.home_sec_category, null),
-        _buildContentLoading(),
-        _buildSection(S.current.home_sec_brand, null),
-        _buildContentLoading(),
-        _buildSection(S.current.home_sec_dining, null),
-        _buildContentLoading(),
-        _buildSection(S.current.home_sec_promo, null),
-        _buildContentLoading(),
-        _buildSection(S.current.home_sec_event, null),
-        _buildContentLoading(),
-      ],
-    );
+  Widget _buildLoading(bool isArabic) {
+    return Consumer(builder: (context, ref, child) {
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          _buildSection(S.current.home_sec_category, isArabic, null),
+          _buildContentLoading(),
+          _buildSection(S.current.home_sec_brand, isArabic, null),
+          _buildContentLoading(),
+          _buildSection(S.current.home_sec_dining, isArabic, null),
+          _buildContentLoading(),
+          _buildSection(S.current.home_sec_promo, isArabic, null),
+          _buildContentLoading(),
+          _buildSection(S.current.home_sec_event, isArabic, null),
+          _buildContentLoading(),
+        ],
+      );
+    });
   }
 
-  Widget _buildPromotions(List<Offers> list) {
+  Widget _buildPromotions(List<Offers> list, bool isArabic) {
     // double ratio = (1.w / 1.h) * 1.3;
     double ratio = 0.5;
     return SizedBox(
@@ -189,15 +191,18 @@ class HomeScreen extends HookWidget {
           onTap: () => Navigator.pushNamed(context, RouteNames.offerDetails,
               arguments: list[index]),
           child: _buildPromotionItem(
-              list[index].ftImg ?? 'assets/images/promotion_sb.png', ratio),
+              list[index].ftImg ?? 'assets/images/promotion_sb.png',
+              ratio,
+              isArabic),
         ),
       ),
     );
   }
 
-  Widget _buildPromotionItem(String image, double ratio) {
+  Widget _buildPromotionItem(String image, double ratio, bool isArabic) {
     return Container(
-      margin: EdgeInsets.only(right: 6.w),
+      margin:
+          isArabic ? EdgeInsets.only(left: 6.w) : EdgeInsets.only(right: 6.w),
       child: ClipRRect(
         borderRadius: BorderRadius.all(Radius.circular(3.w)),
         child: Image(
@@ -295,67 +300,83 @@ class HomeScreen extends HookWidget {
     // final value = list.map((e) => '${e.id}:${e.name!}').toList().join(' , ');
 
     // print('$value');
-    return SizedBox(
-      height: height,
-      child: GridView.builder(
-        padding: EdgeInsets.symmetric(horizontal: 6.w, vertical: 1.h),
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 1,
-          childAspectRatio: 1.2,
-          mainAxisSpacing: 4.w,
-          crossAxisSpacing: 1.h,
+    return Consumer(builder: (context, ref, child) {
+      return SizedBox(
+        height: height,
+        child: GridView.builder(
+          padding: EdgeInsets.symmetric(horizontal: 6.w, vertical: 1.h),
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 1,
+            childAspectRatio: 1.2,
+            mainAxisSpacing: 4.w,
+            crossAxisSpacing: 1.h,
+          ),
+          // padding: const EdgeInsets.all(0),
+          shrinkWrap: true,
+          scrollDirection: Axis.horizontal,
+          // physics: const NeverScrollableScrollPhysics(),
+          itemCount: list.length,
+          itemBuilder: (context, index) => GestureDetector(
+              onTap: () {
+                final item = list[index];
+                // final results = ref.watch(storesProvider);
+                // switch (item.name) {
+                //   case "SHOPPING":
+                //     Navigator.pushNamed(context, RouteNames.searchResultCat,
+                //         arguments: {
+                //           'stores': results,
+                //           'title': isArabic ? item.nameAr : item.name,
+                //           'id': item.id
+                //         });
+                //     break;
+                // }
+
+                if (item.id == 2) {
+                  final response = ref.read(diningProvider);
+                  final List<Stores> results = response.value?.dinings ?? [];
+                  if (results.isNotEmpty) {
+                    Navigator.pushNamed(context, RouteNames.searchResultCat,
+                        arguments: {
+                          'stores': results,
+                          'title': isArabic ? item.nameAr : item.name,
+                          'id': item.id
+                        });
+                  } else {
+                    Navigator.pushNamed(context, RouteNames.searchResultCat,
+                        arguments: {
+                          'stores': [],
+                          'title': isArabic ? item.nameAr : item.name,
+                          'id': item.id
+                        });
+                  }
+                } else {
+                  final response = ref.read(storesProvider);
+                  final List<Stores> results = response.value?.stores
+                          ?.where((element) =>
+                              element.categoryId == item.id.toString())
+                          .toList() ??
+                      [];
+                  if (results.isNotEmpty) {
+                    Navigator.pushNamed(context, RouteNames.searchResultCat,
+                        arguments: {
+                          'stores': results,
+                          'title': isArabic ? item.nameAr : item.name,
+                          'id': item.id
+                        });
+                  } else {
+                    Navigator.pushNamed(context, RouteNames.searchResultCat,
+                        arguments: {
+                          'stores': [],
+                          'title': isArabic ? item.nameAr : item.name,
+                          'id': item.id
+                        });
+                  }
+                }
+              },
+              child: _buildRow(list[index], isArabic)),
         ),
-        // padding: const EdgeInsets.all(0),
-        shrinkWrap: true,
-        scrollDirection: Axis.horizontal,
-        // physics: const NeverScrollableScrollPhysics(),
-        itemCount: list.length,
-        itemBuilder: (context, index) => GestureDetector(
-            onTap: () {
-              final item = list[index];
-              if (item.id == 2) {
-                final List<Stores> results = homeBody.dinings ?? [];
-                if (results.isNotEmpty) {
-                  Navigator.pushNamed(context, RouteNames.searchResultCat,
-                      arguments: {
-                        'stores': results,
-                        'title': isArabic ? item.nameAr : item.name,
-                        'id': item.id
-                      });
-                } else {
-                  Navigator.pushNamed(context, RouteNames.searchResultCat,
-                      arguments: {
-                        'stores': [],
-                        'title': isArabic ? item.nameAr : item.name,
-                        'id': item.id
-                      });
-                }
-              } else {
-                final List<Stores> results = (homeBody.stores
-                        ?.where((element) =>
-                            element.categoryId == item.id.toString())
-                        .toList()) ??
-                    [];
-                if (results.isNotEmpty) {
-                  Navigator.pushNamed(context, RouteNames.searchResultCat,
-                      arguments: {
-                        'stores': results,
-                        'title': isArabic ? item.nameAr : item.name,
-                        'id': item.id
-                      });
-                } else {
-                  Navigator.pushNamed(context, RouteNames.searchResultCat,
-                      arguments: {
-                        'stores': [],
-                        'title': isArabic ? item.nameAr : item.name,
-                        'id': item.id
-                      });
-                }
-              }
-            },
-            child: _buildRow(list[index], isArabic)),
-      ),
-    );
+      );
+    });
   }
 
   Widget _buildRow(Categories category, bool isArabic) {
@@ -398,7 +419,7 @@ class HomeScreen extends HookWidget {
               style: TextStyle(
                 fontFamily: kFontFamily,
                 color: Colors.black,
-                fontSize: 7.sp,
+                fontSize: isArabic ? 9.sp : 7.sp,
                 fontWeight: FontWeight.w500,
               ),
             ),
@@ -425,7 +446,7 @@ class HomeScreen extends HookWidget {
         shrinkWrap: true,
         scrollDirection: Axis.horizontal,
         // physics: const NeverScrollableScrollPhysics(),
-        itemCount: list.length,
+        itemCount: list.length < 10 ? list.length : 10,
         itemBuilder: (context, index) =>
             _buildBrandCard(context, list[index], isArabic),
       ),
@@ -509,17 +530,19 @@ class HomeScreen extends HookWidget {
 
   Widget _buildEvents(List<Events> list, bool isArabic) {
     // double ratio = (1.h / 1.w);
-    double height = 27.w * 1.7;
+    double height = 24.w * 1.7;
 
     return SizedBox(
-      height: height + 4.w,
+      height: height + 7.w,
       child: ListView.builder(
         padding: EdgeInsets.symmetric(horizontal: 6.w, vertical: 2.w),
         shrinkWrap: false,
         scrollDirection: Axis.horizontal,
         itemCount: list.length,
         itemBuilder: (context, index) => Container(
-            margin: EdgeInsets.only(right: 3.w),
+            margin: isArabic
+                ? EdgeInsets.only(left: 3.w)
+                : EdgeInsets.only(right: 3.w),
             width: 30.w,
             height: height,
             child: GestureDetector(
@@ -568,123 +591,43 @@ class HomeScreen extends HookWidget {
           ],
         ),
         child: Padding(
-          padding: EdgeInsets.all(1.w),
+          padding: EdgeInsets.all(2.w),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // SizedBox(height: 2.w),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  // SizedBox(width: 0.4.w),
-                  Padding(
-                    padding: EdgeInsets.only(top: 2.w, left: 1.w),
-                    child: Image(
-                      image: getImageProvider(model.logo ?? ''),
-                      fit: BoxFit.fitWidth,
-                      width: 4.2.h,
-                      height: 4.2.h,
-                    ),
-                  ),
-                  const Spacer(),
-                  Consumer(builder: (context, ref, child) {
-                    final isFav =
-                        ref.watch(favouriteStateProvider('store_${model.id}'));
-                    return GestureDetector(
-                      onTap: () async {
-                        ref
-                            .read(favouriteStateProvider('store_${model.id}')
-                                .notifier)
-                            .toggle();
-                      },
-                      child: Padding(
-                        padding: EdgeInsets.all(2.5.w),
-                        child: SizedBox(
-                          width: 3.w,
-                          height: 3.w,
-                          child: SvgPicture.asset(
-                            isFav
-                                ? 'assets/svg/icon_heart.svg'
-                                : 'assets/svg/icon_heart_unselect.svg',
-                            width: 3.w,
-                          ),
-                        ),
-                      ),
-                    );
-                  })
-                ],
-              ),
-              SizedBox(height: 2.h),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 1.w),
-                child: Text(
-                  (isArabic ? model.titleAr : model.title)?.toUpperCase() ?? '',
-                  // model.title?.toUpperCase() ?? '',
-                  maxLines: 1,
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: isArabic ? 7.sp : 8.sp,
-                    fontWeight: FontWeight.w400,
-                    fontFamily: kFontFamily,
+              // Consumer(builder: (context, ref, child) {
+              //   final isFav =
+              //       ref.watch(favouriteStateProvider('dining_${model.id}'));
+              //   return Align(
+              //     alignment: Alignment.centerRight,
+              //     child: GestureDetector(
+              //       onTap: () async {
+              //         ref
+              //             .read(favouriteStateProvider('dining_${model.id}')
+              //                 .notifier)
+              //             .toggle();
+              //       },
+              //       child: SvgPicture.asset(
+              //         isFav
+              //             // model.wishlistInfo?.isNotEmpty ?? false
+              //             ? 'assets/svg/icon_heart.svg'
+              //             : 'assets/svg/icon_heart_unselect.svg',
+              //         width: 3.5.w,
+              //       ),
+              //     ),
+              //   );
+              // }),
+              Center(
+                child: Padding(
+                  padding: EdgeInsets.symmetric(vertical: 1.w, horizontal: 1.w),
+                  child: Image(
+                    image: getImageProvider(model.logo ?? ''),
+                    fit: BoxFit.contain,
+                    width: 10.h,
+                    height: 10.h,
                   ),
                 ),
               ),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 1.w),
-                child: Text(
-                  S.current.txt_floor(model.floor?.toUpperCase() ?? ''),
-                  maxLines: 1,
-                  // '${model.floor?.toUpperCase() ?? ''} Floor',
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontSize: isArabic ? 6.sp : 7.sp,
-                    fontWeight: FontWeight.w300,
-                    fontFamily: kFontFamily,
-                  ),
-                ),
-              ),
-              const Spacer(),
-              InkWell(
-                onTap: () {
-                  String map = (isArabic ? model.mapAr : model.map) ?? '';
-                  if (map.isNotEmpty) {
-                    Navigator.pushNamed(context, RouteNames.navigateMap,
-                        arguments: map);
-                  }
-                },
-                child: Container(
-                  padding: const EdgeInsets.all(6.0),
-                  decoration: BoxDecoration(
-                      color: AppColors.primaryColor,
-                      borderRadius: BorderRadius.vertical(
-                          bottom: Radius.circular(2.w),
-                          top: const Radius.circular(0))),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        S.current.btn_navigate.toUpperCase(),
-                        maxLines: 1,
-                        style: TextStyle(
-                          fontFamily: kFontFamily,
-                          color: Colors.white,
-                          fontWeight: FontWeight.w500,
-                          fontSize: 6.sp,
-                        ),
-                      ),
-                      Icon(
-                        Icons.arrow_right_alt_sharp,
-                        color: Colors.white.withAlpha(180),
-                        size: 12.0,
-                      )
-                    ],
-                  ),
-                ),
-              ),
-              // const SizedBox(height: 5),
             ],
           ),
         ),
@@ -732,27 +675,7 @@ class HomeScreen extends HookWidget {
 //                     ),
 //                   ),
 //                   const Spacer(),
-//                   Consumer(builder: (context, ref, child) {
-//                     final isFav =
-//                         ref.watch(favouriteStateProvider('dining_${model.id}'));
-//                     return GestureDetector(
-//                       onTap: () async {
-//                         ref
-//                             .read(favouriteStateProvider('dining_${model.id}')
-//                                 .notifier)
-//                             .toggle();
-//                       },
-//                       child: Padding(
-//                         padding: EdgeInsets.all(2.5.w),
-//                         child: SvgPicture.asset(
-//                           isFav
-//                               ? 'assets/svg/icon_heart.svg'
-//                               : 'assets/svg/icon_heart_unselect.svg',
-//                           width: 3.w,
-//                         ),
-//                       ),
-//                     );
-//                   })
+
 //                 ],
 //               ),
 //               SizedBox(height: 2.h),
@@ -897,7 +820,7 @@ class HomeScreen extends HookWidget {
                       fontFamily: kFontFamily,
                       color: Colors.black,
                       fontWeight: FontWeight.w500,
-                      fontSize: 6.sp,
+                      fontSize: isArabic ? 8.sp : 6.sp,
                     ),
                   ),
                   const Icon(
@@ -914,9 +837,10 @@ class HomeScreen extends HookWidget {
     );
   }
 
-  Widget _buildSection(String caption, Function()? onViewAll) {
+  Widget _buildSection(String caption, bool isArabic, Function()? onViewAll) {
     return Padding(
-      padding: EdgeInsets.only(left: 6.w, right: 4.w, top: 0.5.h),
+      padding:
+          EdgeInsets.only(left: 6.w, right: isArabic ? 6.w : 4.w, top: 0.5.h),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [

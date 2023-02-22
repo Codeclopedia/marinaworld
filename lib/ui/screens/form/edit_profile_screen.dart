@@ -32,36 +32,23 @@ class EditProfileScreen extends HookConsumerWidget {
   // final countriesOptions = ["Kuwait", "India"];
 
   final formKey = GlobalKey<FormState>();
-  DateTime _selectedDate = DateTime.now();
+  late DateTime _selectedDate;
 
-  late final TextEditingController nameController;
-
-  Future<void> _selectDate(BuildContext context, WidgetRef ref) async {
-    final now = DateTime.now();
-    final DateTime? picked = await showDatePicker(
-        context: context,
-        initialDate: _selectedDate,
-        firstDate: DateTime(now.year - 150),
-        lastDate: now);
-    if (picked != null && picked != _selectedDate) {
-      _selectedDate = picked;
-      ref.read(selectedEditDateProvider.notifier).state = _selectedDate;
-    }
-  }
+  late TextEditingController nameController;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     useEffect(() {
       nameController = TextEditingController(text: user.name);
-      ref.invalidate(selectedEditDateProvider);
-      ref.invalidate(selectedEditGenderProvider);
+      // ref.refresh(selectedEditDateProvider);
+      // ref.refresh(selectedEditGenderProvider);
       // ref.invalidate(selectedEditNationolityProvider);
       return () {
         nameController.dispose();
       };
     });
 
-    final selectedGender = ref.watch(selectedEditGenderProvider);
+    String selectedGender = ref.watch(selectedEditGenderProvider);
     // final selectedNationality = ref.watch(selectedEditNationolityProvider);
 
     _selectedDate = ref.watch(selectedEditDateProvider);
@@ -109,16 +96,16 @@ class EditProfileScreen extends HookConsumerWidget {
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     mainAxisSize: MainAxisSize.max,
                     children: [
-                      SizedBox(height: 2.h),
-                      Text(
-                        S.current.leasing_heading,
-                        style: TextStyle(
-                          fontFamily: kFontFamily,
-                          color: const Color(0xFF8D8D8D),
-                          fontSize: 11.6.sp,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
+                      // SizedBox(height: 2.h),
+                      // Text(
+                      //   S.current.leasing_heading,
+                      //   style: TextStyle(
+                      //     fontFamily: kFontFamily,
+                      //     color: const Color(0xFF8D8D8D),
+                      //     fontSize: 11.6.sp,
+                      //     fontWeight: FontWeight.w600,
+                      //   ),
+                      // ),
                       SizedBox(height: 2.h),
                       TextFormField(
                         controller: nameController,
@@ -164,7 +151,7 @@ class EditProfileScreen extends HookConsumerWidget {
                                 onChanged: (v) {
                                   ref
                                       .read(selectedEditGenderProvider.notifier)
-                                      .state = v ?? S.current.signup_gender_hint;
+                                      .state = v ?? selectedGender;
                                 },
                                 hint: Padding(
                                   padding: EdgeInsets.only(left: 2.w),
@@ -264,9 +251,24 @@ class EditProfileScreen extends HookConsumerWidget {
                                 }
                               }
                             },
-                            child: Text(S.current.fp_btn_submit));
+                            child: Text(S.current.clang_btn_submit));
                       }),
-                      SizedBox(height: 3.h),
+                      SizedBox(height: 2.h),
+                      Center(
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.pushNamed(
+                                context, RouteNames.changePassword,
+                                arguments: user.phone);
+                          },
+                          child: Text(
+                            S.current.change_password,
+                            style:
+                                TextStyle(color: Colors.blue, fontSize: 10.sp),
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 2.h),
                     ],
                   ),
                 ),
@@ -368,4 +370,20 @@ class EditProfileScreen extends HookConsumerWidget {
   //             child: const SuccessDialog(),
   //           ));
   // }
+  Future<void> _selectDate(BuildContext context, WidgetRef ref) async {
+    final now = DateTime.now();
+    final DateTime? picked = await showDatePicker(
+        context: context,
+        initialDate: _selectedDate,
+        firstDate: DateTime(now.year - 150),
+        lastDate: now);
+    // print(picked);
+    if (picked != null && picked != _selectedDate) {
+      // _selectedDate = picked;
+      // print(_selectedDate);
+      ref.read(selectedEditDateProvider.notifier).state = picked;
+      // ref.invalidate(selectedEditDateProvider);
+      // print(ref.read(selectedEditDateProvider));
+    }
+  }
 }

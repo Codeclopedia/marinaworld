@@ -50,8 +50,10 @@
     "signup_cnf_password_hint":"Please enter Confirm password",
     "signup_cnf_password_empty":"Confirm Password can't be empty",
     "signup_cnf_password_invalid":"Confirm password should match with password",
-    "change_pass_title":"Reset new password",
+    "change_pass_title":"Reset your password",
     "change_pass_caption":"Your OTP verified successfully,\nNow Please enter new password to set password for ",
+
+    "location":"Salem Mubarak Street, Gulf Road, Kuwait",
 
 
     "signup_name_caption":"Full Name",
@@ -91,7 +93,7 @@
     "clang_hint":"Please choose a language",
     "clang_btn_submit":"Submit",
 
-    "edit_profile_title":"Edit Profile",
+    "edit_profile_title":"Profile",
 
     
     "fp_header_title":"Forgot Password",
@@ -104,6 +106,10 @@
     "fp_btn_submit":"Submit",
     "fp_btx_login_back":"Back to Login",
     "fp_btx_explore":"Explore First",
+
+    "contact_us_submit":"Submit",
+
+    "change_language_submit":"Submit",
 
 
     "nav_home":"Home",
@@ -137,8 +143,17 @@
 
     "home_welcome":"Welcome to",
     "home_mall":"Marina World",
-    "about_mallname":"Marinaworld",
+    "about_mallname":"Marina World",
+    "about_mallname_part1":"Marina",
+    "about_mallname_part2":" World",
+    "about_area":"Area",
+    "about_brand":"Brands",
+    "about_shop":"Shops",
+    "about_dining":"Dining",
+    "about_cafe":"Cafe",
+    "about_entertainment":"Entertainment",
 
+    "about_m":"m",
 
     "dining_empty":"No Dining",
     "dining_error":"Error while loading Dining",
@@ -161,6 +176,15 @@
     "search_all_cat":"All Categories",
     "search_all_loc":"All Locations",
     "search_all_flr":"All Floors",
+    "search_country":"Search your country name",
+
+
+    "error":"Something went wrong. Please try again later",
+    
+
+    "whatsapp_title":"WhatsApp",
+    "whatsapp_message":"Contact on WhatsApp",
+    "whatsapp_not_installed":"Something went wrong. Make sure you have whatsapp installed in your phone",
     
     "heading_search_result":"Search Result",
 
@@ -175,15 +199,22 @@
     "oh_rest":"Restaurants Inside The Mall",
     "oh_rest_time":"09:00 AM - 10:00 PM",
 
+    "change_password":"Change Password",
+
 
     "oh_movie":"Cinescape",
     "oh_movie_time":"12:00 PM - Midnight",
 
 
-    "oh_hotel":"Restaurants N Crescent Side",
+    "oh_hotel":"Restaurants On Crescent Side",
     "oh_hotel_time":"07:00 AM - 11:00 PM",
 
-    "btx_share":"Share:",
+    "DOB_empty_error":"Invalid DOB",
+    "DOB_hint_text":"DD/MM/YYYY",
+
+    "search_country_hint":"Search for an Country Name...",
+
+    "btx_share":"Share",
 
     "logout_title":"Log Out",
     "logout_msg":"Are you sure want to logout from your account?",
@@ -192,10 +223,11 @@
 
     "leasing_title":"Leasing",
     "leasing_heading":"Please fill in maximum details and our representative will call you soon.",
+    "leasing_description":"Leasing Opportunities With us. If you want a large audience to see your brand and buy what you have to offer, there is no better option than setting up a store at Marina Mall. We provide superior services for shopping centre leasing in Salmiya to help you get the maximum value out of your investment. Our team takes into account your specific requirements and then recommends the best way options for store leasing. We offer complete support to our clients from the start till after we get your store up and running. Shopping centre leasing in Salmiya has never been easier than at Marina Mall. Together, we will help your brand reach the highest peak of business achievements, offering our support at every step.",
     
     "leasing_name_hint":"Applicant's Name",
     "leasing_area_hint":"Area Required (approx m²)",
-    "leasing_intended_hint":"Intentded Use",
+    "leasing_intended_hint":"Intended Use",
     "leasing_brand_hint":"Brand Name",
     "leasing_file_caption":" Document/ Business Profile",
     "leasing_file_btn":"Choose File",
@@ -215,13 +247,15 @@
     "floor_first":"1st Floor",
     "floor_second":"2nd Floor",
     "floor_required":"Floor Required",
-
+"thankyou_message_leasing":"Thank you for your message. We have received it and a specialist from our team will contact you shortly to discuss further details about your queries.",
     "thankyou_title":"Thank you for showing interest in Marina World",
     "thankyou_message":"Our representative will get back to you. In the meantime, feel free to explore your interest in the app and see how Marina World can bring joy to your life.",
     "btn_ok":"Ok",
 
     "contact_title":"Contact Us",
     "contact_desc":"Please fill in the below form to connect with us.",
+    "contact_subheading":"Connect With Us",
+    "contact_note":"To provide feedback or suggestions, please fill in the below form to connect with us.",
     "contact_hint_name":"Your Full Name",
     "contact_hint_phone":"Your Phone Number",
     "contact_hint_email":"Your Email Address",

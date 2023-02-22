@@ -23,7 +23,7 @@ class OfferDetailScreen extends StatelessWidget {
       body: Column(
         children: [
           const TopBarSearch(
-            path: 'assets/images/offer_bg.png',
+            path: 'assets/images/home_bg.png',
             index: -1,
             bgColor: Colors.white,
           ),
@@ -64,45 +64,45 @@ class OfferDetailScreen extends StatelessWidget {
                       style: TextStyle(
                           fontFamily: kFontFamily,
                           fontSize: 15.sp,
-                          fontWeight: FontWeight.w700,
+                          fontWeight: FontWeight.w500,
                           color: Colors.black),
                     ),
-                    if (start != null) SizedBox(height: 2.h),
-                    if (start != null)
-                      Container(
-                        padding: EdgeInsets.symmetric(
-                            horizontal: 4.w, vertical: 2.w),
-                        decoration: BoxDecoration(
-                          color: AppColors.primaryColor,
-                          borderRadius: BorderRadius.all(Radius.circular(2.w)),
-                          boxShadow: const [
-                            BoxShadow(
-                                color: Color(0x40000000),
-                                offset: Offset(0, 4),
-                                blurRadius: 11)
-                          ],
-                        ),
+                    // if (start != null) SizedBox(height: 2.h),
+                    // if (start != null)
+                    //   Container(
+                    //     padding: EdgeInsets.symmetric(
+                    //         horizontal: 4.w, vertical: 2.w),
+                    //     decoration: BoxDecoration(
+                    //       color: AppColors.primaryColor,
+                    //       borderRadius: BorderRadius.all(Radius.circular(2.w)),
+                    //       boxShadow: const [
+                    //         BoxShadow(
+                    //             color: Color(0x40000000),
+                    //             offset: Offset(0, 4),
+                    //             blurRadius: 11)
+                    //       ],
+                    //     ),
 
-                        // style: ElevatedButton.styleFrom(
-                        //     elevation: 2,
-                        //     backgroundColor: AppColors.primaryColor,
-                        //     foregroundColor: Colors.white),
-                        child: Text(
-                          DateFormat('dd MMMM, y').format(start),
-                          style: TextStyle(
-                              fontFamily: kFontFamily,
-                              fontSize: 11.sp,
-                              fontWeight: FontWeight.w700,
-                              color: Colors.white),
-                        ),
-                      ),
-                    SizedBox(height: 2.h),
+                    //     // style: ElevatedButton.styleFrom(
+                    //     //     elevation: 2,
+                    //     //     backgroundColor: AppColors.primaryColor,
+                    //     //     foregroundColor: Colors.white),
+                    //     child: Text(
+                    //       DateFormat('dd MMMM, y').format(start),
+                    //       style: TextStyle(
+                    //           fontFamily: kFontFamily,
+                    //           fontSize: 11.sp,
+                    //           fontWeight: FontWeight.w700,
+                    //           color: Colors.white),
+                    //     ),
+                    //   ),
+                    SizedBox(height: 4.h),
                     Text(
-                      S.current.btx_share.toUpperCase(),
+                      S.current.btx_share,
                       style: TextStyle(
                         fontFamily: kFontFamily,
-                        fontSize: 12.sp,
-                        fontWeight: FontWeight.w700,
+                        fontSize: 10.sp,
+                        fontWeight: FontWeight.w400,
                         color: Colors.black,
                       ),
                     ),

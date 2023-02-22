@@ -53,8 +53,8 @@ class SearchResultScreen extends StatelessWidget {
                   style: TextStyle(
                     fontFamily: kFontFamily,
                     color: Colors.black,
-                    fontSize: 11.sp,
-                    fontWeight: FontWeight.w700,
+                    fontSize: 13.sp,
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
                 const Spacer(),

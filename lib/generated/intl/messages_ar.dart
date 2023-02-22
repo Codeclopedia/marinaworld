@@ -20,9 +20,9 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'ar';
 
-  static String m0(open, close) => "يوم من أيام الأسبوع ${open} - ${close}";
+  static String m0(open, close) => "أيام الأسبوع : ${open} - ${close}";
 
-  static String m1(open, close) => "عطلة نهاية الأسبوع ${open} - ${close}";
+  static String m1(open, close) => "أيام نهاية الأسبوع : ${open} - ${close}";
 
   static String m2(time) => "أعد إرسال OTP في ${time} ثانية";
 
@@ -30,13 +30,28 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "about_mallname": MessageLookupByLibrary.simpleMessage("Marinaworld"),
+        "DOB_empty_error":
+            MessageLookupByLibrary.simpleMessage("تاريخ ميلاد غير صالح"),
+        "DOB_hint_text":
+            MessageLookupByLibrary.simpleMessage("يوم / شهر / سنة"),
+        "about_area": MessageLookupByLibrary.simpleMessage("مساحة بنا"),
+        "about_brand": MessageLookupByLibrary.simpleMessage("علامة تجارية"),
+        "about_cafe": MessageLookupByLibrary.simpleMessage("كافيهات"),
+        "about_dining": MessageLookupByLibrary.simpleMessage("المطاعم"),
+        "about_entertainment": MessageLookupByLibrary.simpleMessage("الترفيه"),
+        "about_m": MessageLookupByLibrary.simpleMessage("متر مربع"),
+        "about_mallname": MessageLookupByLibrary.simpleMessage("!عالمالمارينا"),
+        "about_mallname_part1": MessageLookupByLibrary.simpleMessage("عالم"),
+        "about_mallname_part2":
+            MessageLookupByLibrary.simpleMessage(" !المارينا"),
+        "about_shop": MessageLookupByLibrary.simpleMessage("متجراً"),
         "btn_explore": MessageLookupByLibrary.simpleMessage("يكتشف"),
-        "btn_navigate": MessageLookupByLibrary.simpleMessage("الملاح"),
+        "btn_navigate": MessageLookupByLibrary.simpleMessage("خريطة"),
         "btn_ok": MessageLookupByLibrary.simpleMessage("موافق"),
-        "btn_view_all": MessageLookupByLibrary.simpleMessage("يكتشف"),
+        "btn_view_all": MessageLookupByLibrary.simpleMessage("تصفح"),
         "btx_share": MessageLookupByLibrary.simpleMessage(":مشاركة"),
-        "clang_btn_submit": MessageLookupByLibrary.simpleMessage("يُقدِّم"),
+        "change_language_submit": MessageLookupByLibrary.simpleMessage("تنفيذ"),
+        "clang_btn_submit": MessageLookupByLibrary.simpleMessage("تقديم"),
         "clang_caption": MessageLookupByLibrary.simpleMessage("لغة"),
         "clang_greeting": MessageLookupByLibrary.simpleMessage("اختر اللغة"),
         "clang_hint": MessageLookupByLibrary.simpleMessage("الرجاء اختيار لغة"),
@@ -66,16 +81,23 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("حقل الاسم مطلوب"),
         "contact_name_invalid": MessageLookupByLibrary.simpleMessage(
             "لا يمكن أن يكون الاسم قصيرًا إلى هذا الحد"),
+        "contact_note": MessageLookupByLibrary.simpleMessage(
+            "لتقديم ملاحظات أو اقتراحات ، يرجى ملء النموذج أدناه للتواصل معنا."),
         "contact_title": MessageLookupByLibrary.simpleMessage("الاتصال بنا "),
+        "contact_us_submit": MessageLookupByLibrary.simpleMessage("إرسال"),
         "dining_empty": MessageLookupByLibrary.simpleMessage(" المطاعمرقم  "),
         "dining_error":
             MessageLookupByLibrary.simpleMessage("خطأ أثناء تحميل الطعام"),
-        "dtl_about": MessageLookupByLibrary.simpleMessage("عن عالم المارينا  "),
+        "dtl_about": MessageLookupByLibrary.simpleMessage("عن"),
         "dtl_location": MessageLookupByLibrary.simpleMessage("الموقع"),
         "dtl_number": MessageLookupByLibrary.simpleMessage("رقم الاتصال"),
         "dtl_opening": MessageLookupByLibrary.simpleMessage("ساعات العمل"),
         "dtl_weekday": m0,
         "dtl_weekend": m1,
+        "edit_profile_title":
+            MessageLookupByLibrary.simpleMessage("حساب تعريفي"),
+        "error": MessageLookupByLibrary.simpleMessage(
+            "هناك خطأ ما. الرجاء معاودة المحاولة في وقت لاحق"),
         "error_result": MessageLookupByLibrary.simpleMessage(
             "حدث خطأ أثناء جمع التفاصيل\nالرجاء معاودة المحاولة في وقت لاحق"),
         "event_empty": MessageLookupByLibrary.simpleMessage("لا أحداث"),
@@ -108,7 +130,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("نتيجة البحث"),
         "heading_search_store":
             MessageLookupByLibrary.simpleMessage("حدد موقع المتجر"),
-        "home_mall": MessageLookupByLibrary.simpleMessage("Marina World"),
+        "home_mall": MessageLookupByLibrary.simpleMessage("!عالم المارينا"),
         "home_sec_brand":
             MessageLookupByLibrary.simpleMessage("علامات تجارية رائعة "),
         "home_sec_category":
@@ -117,7 +139,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "home_sec_event":
             MessageLookupByLibrary.simpleMessage("الفعاليات القادمة "),
         "home_sec_promo":
-            MessageLookupByLibrary.simpleMessage("الترقيات والعروض"),
+            MessageLookupByLibrary.simpleMessage("الصفقات و العروض"),
         "home_welcome": MessageLookupByLibrary.simpleMessage("أهلاً بكم في "),
         "leasing_area_hint":
             MessageLookupByLibrary.simpleMessage("المساحة المطلوبة (متر مربع)"),
@@ -152,6 +174,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("اسم المتقدم"),
         "leasing_title":
             MessageLookupByLibrary.simpleMessage("استفسارات الاستئجار"),
+        "location": MessageLookupByLibrary.simpleMessage(
+            "شارع سالم المبارك، الخليج العربي، الكويت"),
         "login_btn_signin":
             MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
         "login_btx_forgot_password_":
@@ -195,9 +219,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "mall_about_footer": MessageLookupByLibrary.simpleMessage(
             "اكتشف الوجهة الأكثر شهرة على ساحل الكويت"),
         "mall_about_span1":
-            MessageLookupByLibrary.simpleMessage("مارينال وورلد في أ"),
-        "mall_about_span2": MessageLookupByLibrary.simpleMessage("يلمح"),
-        "menu_about_us": MessageLookupByLibrary.simpleMessage("من نحن "),
+            MessageLookupByLibrary.simpleMessage("مارينا وورلد في"),
+        "mall_about_span2": MessageLookupByLibrary.simpleMessage("لمحات"),
+        "menu_about_us": MessageLookupByLibrary.simpleMessage("نبذة عنا"),
         "menu_choose_lang": MessageLookupByLibrary.simpleMessage("تغيير اللغة"),
         "menu_contact": MessageLookupByLibrary.simpleMessage("تواصل معنا"),
         "menu_dining": MessageLookupByLibrary.simpleMessage("المطاعم"),
@@ -214,7 +238,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تم إرسال OTP بنجاح"),
         "msg_unknown_error": MessageLookupByLibrary.simpleMessage("حدث خطأ"),
         "nav_home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
-        "nav_map": MessageLookupByLibrary.simpleMessage("خريطة المركز التجاري"),
+        "nav_map": MessageLookupByLibrary.simpleMessage("خريطة"),
         "offer_empty": MessageLookupByLibrary.simpleMessage("لا عروض"),
         "oh_hotel":
             MessageLookupByLibrary.simpleMessage("المطاعم داخل مارينا كريسنت"),
@@ -247,6 +271,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "search_all_cat": MessageLookupByLibrary.simpleMessage("جميع الفئات"),
         "search_all_flr": MessageLookupByLibrary.simpleMessage("جميع الطوابق"),
         "search_all_loc": MessageLookupByLibrary.simpleMessage("جميع الموقع "),
+        "search_country":
+            MessageLookupByLibrary.simpleMessage("ابحث عن اسم بلدك"),
+        "search_country_hint":
+            MessageLookupByLibrary.simpleMessage("البحث عن اسم الدولة ..."),
         "search_hint_name":
             MessageLookupByLibrary.simpleMessage("البحث حسب الإسم"),
         "signup_btn_create_account":
@@ -306,6 +334,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("خطأ أثناء تحميل المخازن"),
         "thankyou_message": MessageLookupByLibrary.simpleMessage(
             "سيعود مندوبنا إليك في هذه الأثناء ، ولا تتردد في استكشاف اهتمامك بالتطبيق ومعرفة كيف يمكن لعالم مارينا أن يجلب الفرح لحياتك."),
+        "thankyou_message_leasing": MessageLookupByLibrary.simpleMessage(
+            "شكرا لرسالتك. لقد تلقيناها وسيتصل بك أحد المتخصصين من فريقنا قريبًا لمناقشة المزيد من التفاصيل حول استفساراتك."),
         "thankyou_title": MessageLookupByLibrary.simpleMessage(
             "شكرا لك على اهتمامك بعالم المارينا"),
         "txt_categories": MessageLookupByLibrary.simpleMessage("الفئات"),
@@ -322,6 +352,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "verifyotp_otp_caption":
             MessageLookupByLibrary.simpleMessage("أدخل كلمة المرور لمرة واحدة"),
         "verifyotp_txt_wait":
-            MessageLookupByLibrary.simpleMessage("أعد إرسال OTP في 59 ثانية")
+            MessageLookupByLibrary.simpleMessage("أعد إرسال OTP في 59 ثانية"),
+        "whatsapp_message":
+            MessageLookupByLibrary.simpleMessage("الاتصال على الواتس اب"),
+        "whatsapp_not_installed": MessageLookupByLibrary.simpleMessage(
+            "هناك خطأ ما. تأكد من تثبيت تطبيق whatsapp في هاتفك"),
+        "whatsapp_title": MessageLookupByLibrary.simpleMessage("ال WhatsApp")
       };
 }

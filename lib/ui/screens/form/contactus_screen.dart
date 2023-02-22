@@ -3,7 +3,9 @@
 import 'dart:io';
 
 import 'package:flutter_svg/svg.dart';
+import 'package:marina_mall/controller/dataproviders.dart';
 import 'package:url_launcher/url_launcher.dart';
+import '../screens.dart';
 import '/core/utils.dart';
 import '/data/network/api_service.dart';
 import '/ui/screens/base_back_screen.dart';
@@ -51,7 +53,7 @@ class ContactUsScreen extends HookWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const TopBarSearch(
-              path: 'assets/images/contact_bg.png',
+              path: 'assets/images/Contact-Us-Banner.jpg',
               index: -1,
             ),
             Padding(
@@ -61,8 +63,8 @@ class ContactUsScreen extends HookWidget {
                 style: TextStyle(
                   fontFamily: kFontFamily,
                   color: Colors.black,
-                  fontSize: 15.sp,
-                  fontWeight: FontWeight.w700,
+                  fontSize: 13.sp,
+                  fontWeight: FontWeight.w500,
                 ),
               ),
             ),
@@ -82,12 +84,153 @@ class ContactUsScreen extends HookWidget {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   mainAxisSize: MainAxisSize.max,
                   children: [
+                    // SizedBox(height: 2.h),
+                    // Text(
+                    //   S.current.contact_subheading,
+                    //   style: TextStyle(
+                    //     fontFamily: kFontFamily,
+                    //     color: const Color(0xFF8D8D8D),
+                    //     fontSize: 12.sp,
+                    //     fontWeight: FontWeight.w600,
+                    //   ),
+                    // ),
+                    SizedBox(height: 3.h),
+                    Text(
+                      S.current.contact_note,
+                      style: TextStyle(
+                        fontFamily: kFontFamily,
+                        color: const Color(0xFF8D8D8D),
+                        fontSize: 10.sp,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                    SizedBox(height: 3.h),
+                    _buildRow(
+                        'icon_map_pin.svg', S.current.contact_info_location),
+                    SizedBox(height: 1.w),
+                    _buildDesc(S.current.location),
+                    SizedBox(height: 3.h),
+                    _buildRow('icon_email.svg', S.current.contact_info_email),
+                    SizedBox(height: 1.w),
+                    GestureDetector(
+                        onTap: () async {
+                          Uri uri = Uri.parse('mailto:marina.info@urc.com.kw');
+                          if (await canLaunchUrl(uri)) {
+                            launchUrl(uri);
+                          } else {
+                            AppSnackbar.instance
+                                .error(context, 'Error in launching mail');
+                          }
+                        },
+                        child: _buildDesc('marina.info@urc.com.kw')),
+                    SizedBox(height: 3.h),
+                    _buildRow('icon_call.svg', S.current.contact_info_contact),
+                    SizedBox(height: 1.w),
+                    GestureDetector(
+                      onTap: () async {
+                        Uri uri = Uri.parse('tel:+9651899199');
+                        if (await canLaunchUrl(uri)) {
+                          launchUrl(uri);
+                        } else {
+                          AppSnackbar.instance
+                              .error(context, 'Error in launching phone');
+                          print('Error in launching tel');
+                        }
+                      },
+                      child: Consumer(builder: (context, ref, child) {
+                        bool isArabic =
+                            ref.watch(languageStateProvider) == langArabic;
+                        return Align(
+                          alignment: isArabic
+                              ? Alignment.centerRight
+                              : Alignment.centerLeft,
+                          child: Padding(
+                            padding: EdgeInsets.only(
+                              left: 7.w,
+                              right: 6.w,
+                            ),
+                            child: Text(
+                              "(+965) 1899199",
+                              textDirection: TextDirection.ltr,
+                              style: TextStyle(
+                                fontFamily: kFontFamily,
+                                fontSize: 10.sp,
+                                fontWeight: FontWeight.w300,
+                                color: const Color(0xFF4B4B4B),
+                              ),
+                            ),
+                          ),
+                        );
+                      }),
+                    ),
+                    SizedBox(
+                      height: 3.h,
+                    ),
+                    // SvgPicture.asset(
+                    //   'assets/svg/whatsapp.svg',
+                    //   width: 4.w,
+                    //   color: Colors.black,
+                    // ),
+                    _buildRow('whatsapp.svg', S.current.whatsapp_title),
+                    SizedBox(height: 1.w),
+                    InkWell(
+                      onTap: () {
+                        contactOnWhatsApp();
+                      },
+                      child: Padding(
+                        padding: EdgeInsets.only(left: 7.w, right: 6.w),
+                        child: Text(
+                          S.current.whatsapp_message,
+                          style: TextStyle(
+                            color: const Color(0xFF4B4B4B),
+                            fontSize: 10.sp,
+                          ),
+                        ),
+                      ),
+                    ),
+
+                    SizedBox(height: 2.h),
+                    Row(
+                      children: [
+                        SizedBox(width: 5.w),
+                        Consumer(builder: (context, ref, child) {
+                          return TextButton(
+                              onPressed: () async {
+                                // Uri uri = Uri.parse('https://www.google.com/maps/@?api=1&map_action=map&');
+                                Uri uri = Uri.parse(
+                                    'https://www.google.com/maps/dir//Marina+Mall+Salem+Al+Mubarak+St+Salmiya+Kuwait/@29.3392739,48.0656684');
+                                //
+                                if (Platform.isIOS) {
+                                  uri = Uri.parse(
+                                      'http://maps.apple.com/?ll=29.339237,48.065765');
+                                }
+
+                                if (await canLaunchUrl(uri)) {
+                                  launchUrl(uri);
+                                } else {
+                                  AppSnackbar.instance
+                                      .error(context, 'Error in launching map');
+                                  // print('Error in launching');
+                                }
+                              },
+                              child: Text(
+                                S.current.contact_btx_locate,
+                                style: TextStyle(
+                                    decoration: TextDecoration.underline,
+                                    color: AppColors.primaryColor,
+                                    fontFamily: kFontFamily,
+                                    fontSize: 12.sp),
+                              ));
+                        }),
+                      ],
+                    ),
+                    const Divider(),
                     SizedBox(height: 2.h),
                     Text(
                       S.current.contact_desc,
                       style: TextStyle(
                         fontFamily: kFontFamily,
-                        color: Color(0xFF8D8D8D),
+                        color: const Color(0xFF8D8D8D),
                         fontSize: 10.sp,
                         fontWeight: FontWeight.w600,
                       ),
@@ -165,89 +308,24 @@ class ContactUsScreen extends HookWidget {
                                   emailController.text.trim(),
                                   messageController.text.trim());
                               if (error == null) {
-                                AppSnackbar.instance.message(
-                                    context, 'Form Submitted successfully');
-                                await Future.delayed(
-                                    const Duration(seconds: 1));
+                                await showSuccessDialog(
+                                    context, S.current.thankyou_message);
+
+                                // AppSnackbar.instance.message(
+                                //     context, 'Form Submitted successfully');
+                                // await Future.delayed(
+                                //     const Duration(seconds: 1));
+                                // Navigator.pop(context);
+                                // await Future.delayed(
+                                //     const Duration(seconds: 1));
                                 Navigator.pop(context);
                               } else {
                                 AppSnackbar.instance.error(context, error);
                               }
                             }
                           },
-                          child: Text(S.current.fp_btn_submit));
+                          child: Text(S.current.contact_us_submit));
                     }),
-                    SizedBox(height: 3.h),
-                    const Divider(color: Color(0x66000000), height: 1),
-                    SizedBox(height: 4.h),
-                    _buildRow(
-                        'icon_map_pin.svg', S.current.contact_info_location),
-                    SizedBox(height: 1.w),
-                    _buildDesc('Salem Mubarak Street, Gulf Road, Kuwait'),
-                    SizedBox(height: 3.h),
-                    _buildRow('icon_email.svg', S.current.contact_info_email),
-                    SizedBox(height: 1.w),
-                    GestureDetector(
-                        onTap: () async {
-                          Uri uri = Uri.parse('mailto:marina.info@urc.com.kw');
-                          if (await canLaunchUrl(uri)) {
-                            launchUrl(uri);
-                          } else {
-                            AppSnackbar.instance
-                                .error(context, 'Error in launching mail');
-                          }
-                        },
-                        child: _buildDesc('marina.info@urc.com.kw')),
-                    SizedBox(height: 3.h),
-                    _buildRow('icon_call.svg', S.current.contact_info_contact),
-                    SizedBox(height: 1.w),
-                    GestureDetector(
-                        onTap: () async {
-                          Uri uri = Uri.parse('tel:+9651899199');
-                          if (await canLaunchUrl(uri)) {
-                            launchUrl(uri);
-                          } else {
-                            AppSnackbar.instance
-                                .error(context, 'Error in launching phone');
-                            print('Error in launching tel');
-                          }
-                        },
-                        child: _buildDesc('(+965) 1899199')),
-                    SizedBox(height: 2.h),
-                    Row(
-                      children: [
-                        SizedBox(width: 5.w),
-                        Consumer(builder: (context, ref, child) {
-                          return TextButton(
-                              onPressed: () async {
-                                // Uri uri = Uri.parse('https://www.google.com/maps/@?api=1&map_action=map&');
-                                Uri uri = Uri.parse(
-                                    'https://www.google.com/maps/dir//Marina+Mall+Salem+Al+Mubarak+St+Salmiya+Kuwait/@29.3392739,48.0656684');
-                                //
-                                if (Platform.isIOS) {
-                                  uri = Uri.parse(
-                                      'http://maps.apple.com/?ll=29.339237,48.065765');
-                                }
-
-                                if (await canLaunchUrl(uri)) {
-                                  launchUrl(uri);
-                                } else {
-                                  AppSnackbar.instance
-                                      .error(context, 'Error in launching map');
-                                  // print('Error in launching');
-                                }
-                              },
-                              child: Text(
-                                S.current.contact_btx_locate,
-                                style: TextStyle(
-                                    decoration: TextDecoration.underline,
-                                    color: AppColors.primaryColor,
-                                    fontFamily: kFontFamily,
-                                    fontSize: 12.sp),
-                              ));
-                        }),
-                      ],
-                    ),
                     SizedBox(height: 3.h),
                   ],
                 ),
@@ -260,6 +338,36 @@ class ContactUsScreen extends HookWidget {
           color: const Color(0xFFFBFBFB),
           child: const BottomBar(currentIndex: -1)),
     );
+  }
+
+  void contactOnWhatsApp() async {
+    var whatsappNumber = "+965 6648 2660";
+    var androidUrl = "whatsapp://send?phone=$whatsappNumber&text=hello👋";
+    var iosUrl = "https://wa.me/$whatsappNumber?text=${Uri.parse('hello👋')}";
+    // var whatsappAndroid =
+    //     Uri.parse("whatsapp://send?phone=$whatsappNumber&text=hello👋");
+    try {
+      if (await canLaunchUrl(Uri.parse(Platform.isIOS ? iosUrl : androidUrl))) {
+        await launchUrl(Uri.parse(Platform.isIOS ? iosUrl : androidUrl));
+      } else {
+        EasyLoading.showError(S.current.whatsapp_not_installed);
+      }
+    } catch (e) {
+      EasyLoading.showError(S.current.error);
+    }
+  }
+
+  Future showSuccessDialog(BuildContext context, String message) {
+    return showDialog(
+        context: context,
+        builder: (context) => Dialog(
+              backgroundColor: Colors.white,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(3.w))),
+              child: SuccessDialog(
+                message: message,
+              ),
+            ));
   }
 
   Future<String?> _postContact(WidgetRef ref, String name, String phone,
@@ -292,14 +400,17 @@ class ContactUsScreen extends HookWidget {
   Widget _buildRow(String icon, String caption) {
     return Row(
       children: [
-        SvgPicture.asset('assets/svg/$icon', width: 4.w),
+        SvgPicture.asset(
+          'assets/svg/$icon',
+          width: 4.w,
+        ),
         SizedBox(width: 3.w),
         Text(
           caption.toUpperCase(),
           style: TextStyle(
               fontFamily: kFontFamily,
-              fontSize: 11.sp,
-              fontWeight: FontWeight.w700,
+              fontSize: 10.sp,
+              fontWeight: FontWeight.w500,
               color: Colors.black),
         ),
       ],
@@ -310,7 +421,7 @@ class ContactUsScreen extends HookWidget {
     return Padding(
       padding: EdgeInsets.only(
         left: left ?? 7.w,
-        right: 20.w,
+        right: 6.w,
       ),
       child: Text(
         desc,

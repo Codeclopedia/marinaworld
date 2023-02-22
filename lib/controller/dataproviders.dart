@@ -1,4 +1,6 @@
 // import '/data/models/response/gallery_response.dart';
+import 'package:marina_mall/data/models/response/country_data_response.dart';
+
 import '../data/models/models.dart';
 // import '/data/models/response/home_response.dart';
 
@@ -30,6 +32,12 @@ final storesProvider = FutureProvider<StoresBody?>((ref) {
 final diningProvider = FutureProvider<DiningBody?>((ref) {
   return ref.read(remoteRepositoryProvider).getDining();
 });
+
+final countriesDataProvider = FutureProvider<List<Countries>?>(
+  (ref) {
+    return ref.read(remoteRepositoryProvider).getcountriesData();
+  },
+);
 
 final galleryProvider = FutureProvider<List<GalleryItem>?>(
     (ref) => ref.read(remoteRepositoryProvider).loadGallery());
@@ -110,6 +118,8 @@ class LanguageNotifier extends StateNotifier<String> {
       : super(pref?.getString('language') ?? langEnglish);
 
   void setLanguage(String language) async {
+    kFontFamily = language == langArabic ? 'Tajawal' : 'euclid-circular';
+    print(kFontFamily);
     await pref?.setString('language', language);
     state = language;
   }

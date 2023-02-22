@@ -33,14 +33,14 @@ class ChooseLanguageScreen extends StatelessWidget {
                   S.current.clang_greeting,
                   style: screenHeaderTitleStyle,
                 ),
-                SizedBox(height: 0.5.h),
+                // SizedBox(height: 0.5.h),
+                // Text(
+                //   S.current.clang_message,
+                //   style: captionTextStyle,
+                // ),
+                SizedBox(height: 3.5.h),
                 Text(
                   S.current.clang_message,
-                  style: captionTextStyle,
-                ),
-                SizedBox(height: 3.h),
-                Text(
-                  S.current.clang_caption,
                   style: inputBoxCaptionStyle,
                 ),
                 SizedBox(height: 1.h),
@@ -91,7 +91,7 @@ class ChooseLanguageScreen extends StatelessWidget {
                           onPressed: () {
                             _goHome(context, ref);
                           },
-                          child: Text(S.current.clang_btn_submit)),
+                          child: Text(S.current.change_language_submit)),
                     );
                   },
                 ),

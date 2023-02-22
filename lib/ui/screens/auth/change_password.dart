@@ -10,10 +10,10 @@ import '../base_back_screen.dart';
 final changePswShowPasswordProvider = StateProvider<bool>(((ref) => false));
 final changeCnfPswShowPasswordProvider = StateProvider<bool>(((ref) => false));
 
-class ChangePasswordScreen extends HookConsumerWidget {
+class ResetPasswordScreen extends HookConsumerWidget {
   final String phone;
 
-  ChangePasswordScreen({Key? key, required this.phone}) : super(key: key);
+  ResetPasswordScreen({Key? key, required this.phone}) : super(key: key);
   final formKey = GlobalKey<FormState>();
 
   @override
@@ -208,7 +208,7 @@ class ChangePasswordScreen extends HookConsumerWidget {
                             }
                           },
                           child: Text(
-                            S.current.fp_btn_submit,
+                            S.current.clang_btn_submit,
                           ),
                         ),
                       ),

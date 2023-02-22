@@ -1,3 +1,5 @@
+import 'package:marina_mall/ui/screens/auth/change_account_password.dart';
+
 import '../data/models/models.dart';
 import '/ui/screens/screens.dart';
 import 'constants/route_names.dart';
@@ -20,7 +22,7 @@ class Routes {
       case RouteNames.loginMobile:
         screen = LoginMobileScreen();
         break;
-      case RouteNames.verifyOtp://DbxKwt123
+      case RouteNames.verifyOtp: //DbxKwt123
         // settings.arguments
         final phone = settings.arguments as String;
         screen = VerifyOtpScreen(phone: phone);
@@ -36,6 +38,10 @@ class Routes {
       //   final email = settings.arguments as String;
       //   screen = VerifyForgotOtpScreen(email: email);
       //   break;
+      case RouteNames.resetPassword:
+        final phone = settings.arguments as String;
+        screen = ResetPasswordScreen(phone: phone);
+        break;
       case RouteNames.changePassword:
         final phone = settings.arguments as String;
         screen = ChangePasswordScreen(phone: phone);

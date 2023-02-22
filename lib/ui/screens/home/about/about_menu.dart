@@ -94,8 +94,8 @@ class AboutMenu extends StatelessWidget {
                               user?.name ?? 'User Name',
                               style: TextStyle(
                                   fontFamily: kFontFamily,
-                                  fontSize: 11.sp,
-                                  fontWeight: FontWeight.bold,
+                                  fontSize: 12.sp,
+                                  fontWeight: FontWeight.w500,
                                   color: Colors.black),
                             ),
                             SizedBox(height: 0.5.h),
@@ -117,6 +117,14 @@ class AboutMenu extends StatelessWidget {
               SizedBox(height: 2.h),
               const Divider(height: 0.5, color: Colors.black26),
               SizedBox(height: 2.w),
+              _buildTextAction(S.current.nav_home, () {
+                Navigator.pop(context);
+                Navigator.pushNamedAndRemoveUntil(
+                    context, RouteNames.home, (route) => false);
+
+                // Navigator.pushNamedAndRemoveUntil(
+                //     context, RouteNames.about, (route) => route.isFirst);
+              }),
               _buildTextAction(S.current.menu_about_us, () {
                 Navigator.pop(context);
                 if (index >= 0) {
@@ -244,9 +252,9 @@ class AboutMenu extends StatelessWidget {
             ],
           ),
         ),
-        // SizedBox(
-        //   height: 20.h,
-        // ),
+        SizedBox(
+          height: 20.h,
+        ),
       ],
     );
   }
@@ -268,7 +276,7 @@ class AboutMenu extends StatelessWidget {
           style: TextStyle(
               fontFamily: kFontFamily,
               fontSize: 11.sp,
-              fontWeight: FontWeight.w500,
+              fontWeight: FontWeight.w400,
               color: Colors.black),
         ),
       ),
@@ -315,7 +323,7 @@ class AboutMenu extends StatelessWidget {
                           style: TextStyle(
                               fontFamily: kFontFamily,
                               fontSize: 11.sp,
-                              fontWeight: FontWeight.w500,
+                              fontWeight: FontWeight.w400,
                               color: AppColors.primaryColor),
                         ),
                       ],
