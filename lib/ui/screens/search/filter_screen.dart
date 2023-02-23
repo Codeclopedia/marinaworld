@@ -16,7 +16,7 @@ final selectedCategories =
 final selectedLocations = StateProvider.autoDispose<Locations?>((ref) => null);
 // final selectedStore = StateProvider.autoDispose<Stores?>((ref) => null);
 final selectedFloor = StateProvider.autoDispose<String?>((ref) => null);
-final selectedFloorApiData = StateProvider<String?>((ref) => null);
+// final selectedFloorApiData = StateProvider<String?>((ref) => null);
 // final searchParam = StateProvider.autoDispose<String>((ref) => '');
 
 class SearchFilterScreen extends StatelessWidget {
@@ -57,7 +57,7 @@ class SearchFilterScreen extends StatelessWidget {
 
   Widget _buildBody() {
     return Consumer(builder: (context, ref, child) {
-      final isArabic = ref.read(languageStateProvider);
+      // final isArabic = ref.read(languageStateProvider);
       if (isDining) {
         return ref.watch(diningProvider).when(
             data: (data) {
@@ -68,24 +68,10 @@ class SearchFilterScreen extends StatelessWidget {
                       ?.where((element) => (element.id ?? 0) == 2))?.toList() ??
                   [];
               final List<Locations> locations = data.locations ?? [];
-              final List<String> floors =
+              final List<String> floor =
                   (data.dinings?.map((e) => e.floor.toString()).toSet() ?? {})
                       .toList();
-              final List<String> floor = [];
-              floors.every(
-                (element) {
-                  element == "All Floors" || element == null
-                      ? floor.add(S.current.search_all_flr)
-                      : element == "ground"
-                          ? floor.add(S.current.floor_ground)
-                          : element == "1st"
-                              ? floor.add(S.current.floor_first)
-                              : element == "2nd"
-                                  ? floor.add(S.current.floor_second)
-                                  : null;
-                  return true;
-                },
-              );
+
               return _buildSearchParams(
                   context, ref, cats, locations, floor, data.dinings ?? []);
             },
@@ -105,23 +91,23 @@ class SearchFilterScreen extends StatelessWidget {
             final List<String> floors =
                 (data.stores?.map((e) => e.floor.toString()).toSet() ?? {})
                     .toList();
-            final List<String> floor = [];
-            floors.every(
-              (element) {
-                element == "All Floors" || element == null
-                    ? floor.add(S.current.search_all_flr)
-                    : element == "ground"
-                        ? floor.add(S.current.floor_ground)
-                        : element == "1st"
-                            ? floor.add(S.current.floor_first)
-                            : element == "2nd"
-                                ? floor.add(S.current.floor_second)
-                                : null;
-                return true;
-              },
-            );
+            // final List<String> floor = [];
+            // floors.every(
+            //   (element) {
+            //     element == "All Floors" || element == null
+            //         ? floor.add(S.current.search_all_flr)
+            //         : element == "ground"
+            //             ? floor.add(S.current.floor_ground)
+            //             : element == "1st"
+            //                 ? floor.add(S.current.floor_first)
+            //                 : element == "2nd"
+            //                     ? floor.add(S.current.floor_second)
+            //                     : null;
+            //     return true;
+            //   },
+            // );
             return _buildSearchParams(
-                context, ref, cats, locations, floor, data.stores ?? []);
+                context, ref, cats, locations, floors, data.stores ?? []);
             // final selectedCat = ref.watch(selectedCategories);
           },
           error: (e, t) => buildEmptyLoading('Error while loading'),
@@ -175,19 +161,19 @@ class SearchFilterScreen extends StatelessWidget {
             (v) => ref.read(selectedCategories.notifier).state = v),
         SizedBox(height: 4.w),
         _buildFloorDropDown(isArabic, [null, ...floors], selectedFlr, (v) {
-          String value = v == S.current.search_all_flr
-              ? "All Floors"
-              : v == S.current.floor_ground
-                  ? "ground"
-                  : v == S.current.floor_first
-                      ? "1st"
-                      : v == S.current.floor_second
-                          ? "2nd"
-                          : "";
-          print("value of floor $value");
+          // String value = v == S.current.search_all_flr
+          //     ? "All Floors"
+          //     : v == S.current.floor_ground
+          //         ? "ground"
+          //         : v == S.current.floor_first
+          //             ? "1st"
+          //             : v == S.current.floor_second
+          //                 ? "2nd"
+          //                 : "";
+
           ref.read(selectedFloor.notifier).state = v;
-          ref.read(selectedFloorApiData.notifier).state = value;
-          print(ref.watch(selectedFloorApiData));
+          // ref.read(selectedFloorApiData.notifier).state = value;
+          // print(ref.watch(selectedFloorApiData));
         }),
         SizedBox(height: 4.w),
         _buildLocationsDropDown(isArabic, [null, ...locations], selectedLoc,
@@ -200,11 +186,18 @@ class SearchFilterScreen extends StatelessWidget {
               onPressed: () {
                 // String term = _controller.text.trim();
                 // term,
-                print("floor api data ${ref.watch(selectedFloorApiData)}");
+
                 final result = _doFilter(context, isArabic, selectedCat,
-                    selectedLoc, ref.watch(selectedFloorApiData), stores);
-                Navigator.pushNamed(context, RouteNames.searchResult,
-                    arguments: result);
+                    selectedLoc, ref.watch(selectedFloor), stores);
+                isDining
+                    ? Navigator.pushNamed(context, RouteNames.searchResultCat,
+                        arguments: {
+                            'stores': result,
+                            'title': S.current.heading_search_result,
+                            'id': 2
+                          })
+                    : Navigator.pushNamed(context, RouteNames.searchResult,
+                        arguments: result);
                 // _goHome(context, ref);
               },
               child: Text(S.current.clang_btn_submit)),
@@ -311,13 +304,22 @@ class SearchFilterScreen extends StatelessWidget {
         underline: const SizedBox.shrink(),
         onTap: () {},
         items: options.map<DropdownMenuItem<String>>((String? value) {
+          String updateFloorTitle = value == "All Floors" || value == null
+              ? S.current.search_all_flr
+              : value == "ground"
+                  ? S.current.floor_ground
+                  : value == "1st"
+                      ? S.current.floor_first
+                      : value == "2nd"
+                          ? S.current.floor_second
+                          : "";
           return DropdownMenuItem<String>(
             value: value,
             child: Padding(
               padding: EdgeInsets.only(left: 3.w),
               child: Text(
                   //isArabic
-                  value ?? S.current.search_all_flr),
+                  updateFloorTitle),
             ),
           );
         }).toList(),

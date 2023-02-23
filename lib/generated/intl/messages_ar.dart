@@ -107,6 +107,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("الطابق المطلوب"),
         "floor_second": MessageLookupByLibrary.simpleMessage("الطابق الثاني"),
         "fp_btn_submit": MessageLookupByLibrary.simpleMessage("يُقدِّم"),
+        "fp_btx_explore": MessageLookupByLibrary.simpleMessage("استكشف أولاً"),
         "fp_btx_login_back":
             MessageLookupByLibrary.simpleMessage("العودة إلى تسجيل الدخول"),
         "fp_desc_message": MessageLookupByLibrary.simpleMessage(
