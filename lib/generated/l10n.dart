@@ -1560,6 +1560,26 @@ class S {
     );
   }
 
+  /// `10:00 AM - 10:00 PM (Weekdays)`
+  String get oh_retailer_time_part_1 {
+    return Intl.message(
+      '10:00 AM - 10:00 PM (Weekdays)',
+      name: 'oh_retailer_time_part_1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `10:00 AM - 11:00 PM (Weekends)`
+  String get oh_retailer_time_part_2 {
+    return Intl.message(
+      '10:00 AM - 11:00 PM (Weekends)',
+      name: 'oh_retailer_time_part_2',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Restaurants Inside The Mall`
   String get oh_rest {
     return Intl.message(
@@ -1600,11 +1620,21 @@ class S {
     );
   }
 
-  /// `12:00 PM - Midnight`
-  String get oh_movie_time {
+  /// `Midnight`
+  String get oh_movie_time_part_1 {
     return Intl.message(
-      '12:00 PM - Midnight',
-      name: 'oh_movie_time',
+      'Midnight',
+      name: 'oh_movie_time_part_1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `12:00 PM - `
+  String get oh_movie_time_part_2 {
+    return Intl.message(
+      '12:00 PM - ',
+      name: 'oh_movie_time_part_2',
       desc: '',
       args: [],
     );

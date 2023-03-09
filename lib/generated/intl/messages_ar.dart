@@ -49,8 +49,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "btn_navigate": MessageLookupByLibrary.simpleMessage("خريطة"),
         "btn_ok": MessageLookupByLibrary.simpleMessage("موافق"),
         "btn_view_all": MessageLookupByLibrary.simpleMessage("تصفح"),
-        "btx_share": MessageLookupByLibrary.simpleMessage(":مشاركة"),
+        "btx_share": MessageLookupByLibrary.simpleMessage("مشاركة:"),
         "change_language_submit": MessageLookupByLibrary.simpleMessage("تنفيذ"),
+        "change_pass_caption": MessageLookupByLibrary.simpleMessage(
+            " الآن الرجاء إدخال كلمة مرور جديدة لتعيين كلمة المرور لـ\n, تم التحقق من OTP الخاص بك بنجاح ، "),
+        "change_pass_title":
+            MessageLookupByLibrary.simpleMessage("اعد ضبط كلمه السر"),
+        "change_password":
+            MessageLookupByLibrary.simpleMessage("تغيير كلمة المرور"),
         "clang_btn_submit": MessageLookupByLibrary.simpleMessage("تقديم"),
         "clang_caption": MessageLookupByLibrary.simpleMessage("لغة"),
         "clang_greeting": MessageLookupByLibrary.simpleMessage("اختر اللغة"),
@@ -131,7 +137,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("نتيجة البحث"),
         "heading_search_store":
             MessageLookupByLibrary.simpleMessage("حدد موقع المتجر"),
-        "home_mall": MessageLookupByLibrary.simpleMessage("!عالم المارينا"),
+        "home_mall": MessageLookupByLibrary.simpleMessage("عالم المارينا!"),
         "home_sec_brand":
             MessageLookupByLibrary.simpleMessage("علامات تجارية رائعة "),
         "home_sec_category":
@@ -244,17 +250,20 @@ class MessageLookup extends MessageLookupByLibrary {
         "oh_hotel":
             MessageLookupByLibrary.simpleMessage("المطاعم داخل مارينا كريسنت"),
         "oh_hotel_time":
-            MessageLookupByLibrary.simpleMessage("07:00 AM - 11:00 PM"),
+            MessageLookupByLibrary.simpleMessage("07:00 صباحاً - 11:00 مساءً"),
         "oh_movie": MessageLookupByLibrary.simpleMessage("سينسكيب"),
-        "oh_movie_time":
-            MessageLookupByLibrary.simpleMessage("12:00 PM - منتصف الليل"),
+        "oh_movie_time_part_1":
+            MessageLookupByLibrary.simpleMessage("مساءً - منتصف الليل "),
+        "oh_movie_time_part_2": MessageLookupByLibrary.simpleMessage("12:00"),
         "oh_rest":
             MessageLookupByLibrary.simpleMessage("المطاعم داخل المارينا مول"),
         "oh_rest_time":
-            MessageLookupByLibrary.simpleMessage("09:00 AM - 10:00 PM"),
+            MessageLookupByLibrary.simpleMessage("09:00 صباحاً - 10:00 مساءً"),
         "oh_retailer": MessageLookupByLibrary.simpleMessage("المتاجر"),
-        "oh_retailer_time": MessageLookupByLibrary.simpleMessage(
-            "10:00 AM - 10:00 PM (يوم من أيام الأسبوع)\n10:00 AM - 11:00 PM (عطلة نهاية الأسبوع)"),
+        "oh_retailer_time_part_1": MessageLookupByLibrary.simpleMessage(
+            "10:00 صباحاً - 10:00 مساءً (أيام الأسبوع)"),
+        "oh_retailer_time_part_2": MessageLookupByLibrary.simpleMessage(
+            "10:00 صباحاً - 11:00 مساءً (أيام نهاية الأسبوع)"),
         "otp_login_btn_resend":
             MessageLookupByLibrary.simpleMessage("إعادة إرسال OTP"),
         "otp_login_btn_send": MessageLookupByLibrary.simpleMessage("يرسل OTP"),
@@ -282,6 +291,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
         "signup_btx_signin":
             MessageLookupByLibrary.simpleMessage(" تسجيل الدخول "),
+        "signup_cnf_password_caption":
+            MessageLookupByLibrary.simpleMessage("تأكيد كلمة المرور"),
+        "signup_cnf_password_empty": MessageLookupByLibrary.simpleMessage(
+            "تأكيد كلمة المرور لا يمكن أن يكون فارغًا"),
+        "signup_cnf_password_hint": MessageLookupByLibrary.simpleMessage(
+            "الرجاء إدخال تأكيد كلمة المرور"),
+        "signup_cnf_password_invalid": MessageLookupByLibrary.simpleMessage(
+            "يجب أن يتطابق تأكيد كلمة المرور مع كلمة المرور"),
         "signup_dob_caption":
             MessageLookupByLibrary.simpleMessage("تاريخ الولادة"),
         "signup_dob_hint": MessageLookupByLibrary.simpleMessage("MM/DD/YYYY"),

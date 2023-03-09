@@ -334,7 +334,7 @@ class SearchFilterScreen extends StatelessWidget {
             color: AppColors.primaryColor,
           ),
         ),
-        dropdownColor: const Color(0xFFF5FCFF),
+        dropdownColor: const Color.fromARGB(255, 228, 227, 227),
         hint: Container(
           // width: 75.w,
           // width: double.infinity,
@@ -382,7 +382,7 @@ class SearchFilterScreen extends StatelessWidget {
             color: AppColors.primaryColor,
           ),
         ),
-        dropdownColor: const Color(0xFFF5FCFF),
+        dropdownColor: const Color.fromARGB(255, 228, 227, 227),
         hint: Container(
           // width: 75.w,
           // width: double.infinity,
@@ -430,7 +430,7 @@ class SearchFilterScreen extends StatelessWidget {
             color: AppColors.primaryColor,
           ),
         ),
-        dropdownColor: const Color(0xFFF5FCFF),
+        dropdownColor: const Color.fromARGB(255, 228, 227, 227),
         hint: Container(
           // width: 75.w,
           // width: double.infinity,

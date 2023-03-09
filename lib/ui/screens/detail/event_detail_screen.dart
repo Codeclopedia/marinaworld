@@ -31,12 +31,13 @@ class EventDetailScreen extends StatelessWidget {
             Consumer(builder: (context, ref, child) {
               bool isArabic = ref.watch(languageStateProvider) == langArabic;
               DateTime? start;
+
               if (events.startDate?.isNotEmpty == true) {
                 try {
-                  start = DateFormat.yMd().parse(events.startDate!);
-                  // print(
-                  //     'date ${DateFormat.d().format(start)} - ${DateFormat.MMMM().format(start)} - ${DateFormat.y().format(start)}');
-                } catch (_) {}
+                  start = DateFormat('yyyy-MM-dd').parse(events.startDate!);
+                } catch (e) {
+                  print(e);
+                }
               }
               return Padding(
                 padding: EdgeInsets.symmetric(horizontal: 7.w),
@@ -62,7 +63,7 @@ class EventDetailScreen extends StatelessWidget {
                         )),
                     SizedBox(height: 4.h),
                     Text(
-                      DateFormat('dd MMMM, y').format(start ?? DateTime.now()),
+                      DateFormat("dd MMM yyyy").format(start ?? DateTime.now()),
                       style: TextStyle(
                           fontFamily: kFontFamily,
                           fontSize: 9.sp,

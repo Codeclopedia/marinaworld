@@ -166,9 +166,19 @@ class StoreDetailScreen extends StatelessWidget {
     return Consumer(builder: (context, ref, child) {
       bool isArabic = ref.watch(languageStateProvider) == langArabic;
       final desc = isArabic ? store.descriptionAr : store.description;
+      String updatedFloorTitle =
+          store.floor == "All Floors" || store.floor == null
+              ? S.current.search_all_flr
+              : store.floor == "ground"
+                  ? S.current.floor_ground
+                  : store.floor == "1st"
+                      ? S.current.floor_first
+                      : store.floor == "2nd"
+                          ? S.current.floor_second
+                          : "";
       final address = isArabic
-          ? "${store.addressAr}, ${store.floor}"
-          : "${store.address}, ${store.floor}";
+          ? "${store.addressAr}, $updatedFloorTitle"
+          : "${store.address}, $updatedFloorTitle";
       return Container(
         width: 100.w,
 

@@ -65,6 +65,7 @@ class EventsScreen extends StatelessWidget {
 
   Widget _buildEventCard(Events model, bool isArabic) {
     // print('start ${model.startDate}');
+
     DateTime? start;
     if (model.startDate?.isNotEmpty == true) {
       try {

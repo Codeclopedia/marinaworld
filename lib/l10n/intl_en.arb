@@ -196,6 +196,8 @@
     "oh_retailer":"All Retailers",
     "oh_retailer_time":"10:00 AM - 10:00 PM (Weekdays)\n10:00 AM - 11:00 PM (Weekends)",
 
+"oh_retailer_time_part_1":"10:00 AM - 10:00 PM (Weekdays)",
+"oh_retailer_time_part_2":"10:00 AM - 11:00 PM (Weekends)",
     "oh_rest":"Restaurants Inside The Mall",
     "oh_rest_time":"09:00 AM - 10:00 PM",
 
@@ -203,7 +205,8 @@
 
 
     "oh_movie":"Cinescape",
-    "oh_movie_time":"12:00 PM - Midnight",
+    "oh_movie_time_part_1":"Midnight",
+    "oh_movie_time_part_2":"12:00 PM - ",
 
 
     "oh_hotel":"Restaurants On Crescent Side",

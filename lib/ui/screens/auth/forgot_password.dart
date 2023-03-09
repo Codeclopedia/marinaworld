@@ -43,7 +43,7 @@ class ForgotPasswordScreen extends HookConsumerWidget {
       child: Scaffold(
         body: TopImageScreen(
           onBack: () =>
-                Navigator.pushReplacementNamed(context, RouteNames.login),
+              Navigator.pushReplacementNamed(context, RouteNames.login),
           imageName: 'home_bg.png',
           body: SingleChildScrollView(
             child: Form(
@@ -103,6 +103,7 @@ class ForgotPasswordScreen extends HookConsumerWidget {
                             padding: EdgeInsets.only(left: 2.w),
                             child: Text(
                               '+965',
+                              textDirection: TextDirection.ltr,
                               style: normalTextStyle.copyWith(
                                 color: AppColors.primaryColor,
                                 fontWeight: FontWeight.bold,

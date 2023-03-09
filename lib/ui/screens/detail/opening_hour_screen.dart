@@ -35,10 +35,10 @@ class OpeningHourScreen extends StatelessWidget {
                   ),
                   SizedBox(height: 4.h),
                   _buildField('icon_retailer.png', S.current.oh_retailer,
-                      S.current.oh_retailer_time),
+                      "${S.current.oh_retailer_time_part_1} \n ${S.current.oh_retailer_time_part_2}"),
                   SizedBox(height: 4.h),
                   _buildField('icon_movie.png', S.current.oh_movie,
-                      S.current.oh_movie_time),
+                      '${S.current.oh_movie_time_part_2} ${S.current.oh_movie_time_part_1}'),
                   SizedBox(height: 4.h),
                   _buildField('icon_food.png', S.current.oh_rest,
                       S.current.oh_rest_time),
@@ -82,6 +82,46 @@ class OpeningHourScreen extends StatelessWidget {
               SizedBox(height: 0.8.w),
               Text(
                 desc,
+                style: TextStyle(
+                    fontFamily: kFontFamily,
+                    color: const Color(0xFF4b4b4b),
+                    fontSize: 9.sp,
+                    fontWeight: FontWeight.w300),
+              )
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildField2(String icon, String title, String desc) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Image.asset(
+          'assets/images/$icon',
+          width: 8.5.w,
+          fit: BoxFit.fitWidth,
+        ),
+        SizedBox(width: 8.w),
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                title,
+                style: TextStyle(
+                    fontFamily: kFontFamily,
+                    color: Colors.black,
+                    fontSize: 11.sp,
+                    fontWeight: FontWeight.w500),
+              ),
+              SizedBox(height: 0.8.w),
+              Text(
+                desc,
+                textDirection: TextDirection.rtl,
                 style: TextStyle(
                     fontFamily: kFontFamily,
                     color: const Color(0xFF4b4b4b),

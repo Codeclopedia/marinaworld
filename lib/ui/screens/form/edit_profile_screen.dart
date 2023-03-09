@@ -12,9 +12,9 @@ import '../../widgets/bottom_bar.dart';
 import '/core/ui_core.dart';
 
 final selectedEditDateProvider =
-    StateProvider<DateTime>(((ref) => DateTime.now()));
+    StateProvider.autoDispose<DateTime>(((ref) => DateTime.now()));
 final selectedEditGenderProvider =
-    StateProvider<String>(((ref) => S.current.signup_gender_hint));
+    StateProvider.autoDispose<String>(((ref) => S.current.signup_gender_hint));
 // final selectedEditNationolityProvider =
 //     StateProvider<String>(((ref) => S.current.signup_nationality_hint));
 
@@ -175,6 +175,8 @@ class EditProfileScreen extends HookConsumerWidget {
                                 _selectDate(context, ref);
                               },
                               child: Container(
+                                height: 13.w,
+                                alignment: Alignment.centerLeft,
                                 padding: EdgeInsets.all(3.w),
                                 decoration: const BoxDecoration(
                                   color: AppColors.fillInputColor,
@@ -182,7 +184,9 @@ class EditProfileScreen extends HookConsumerWidget {
                                       BorderRadius.all(Radius.circular(10)),
                                 ),
                                 child: Text(
-                                  dobFormat.format(_selectedDate),
+                                  _selectedDate.day == DateTime.now().day
+                                      ? S.current.DOB_hint_text
+                                      : dobFormat.format(_selectedDate),
                                   style: normalTextStyle,
                                 ),
                               ),

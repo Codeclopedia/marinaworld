@@ -416,6 +416,8 @@ class HomeScreen extends HookWidget {
               (isArabic ? category.nameAr : category.name)?.toUpperCase() ?? '',
               textAlign: TextAlign.center,
               // overflow: TextOverflow.ellipsis,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
               style: TextStyle(
                 fontFamily: kFontFamily,
                 color: Colors.black,

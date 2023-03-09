@@ -129,7 +129,7 @@
     "dtl_number":"رقم الاتصال",
 
     "home_welcome":"أهلاً بكم في ",
-    "home_mall":"!عالم المارينا",
+    "home_mall":"عالم المارينا!",
     "about_mallname":"!عالمالمارينا",
     "about_mallname_part1":"عالم",
     "about_mallname_part2":" !المارينا",
@@ -163,23 +163,34 @@
     "btn_view_all":"تصفح",
     "txt_floor":"{الطابق} الطابق ",
 
+    "signup_cnf_password_caption":"تأكيد كلمة المرور",
+    "signup_cnf_password_hint":"الرجاء إدخال تأكيد كلمة المرور",
+    "signup_cnf_password_empty":"تأكيد كلمة المرور لا يمكن أن يكون فارغًا",
+    "signup_cnf_password_invalid":"يجب أن يتطابق تأكيد كلمة المرور مع كلمة المرور",
+    "change_pass_title":"اعد ضبط كلمه السر",
+    "change_pass_caption":" الآن الرجاء إدخال كلمة مرور جديدة لتعيين كلمة المرور لـ\n, تم التحقق من OTP الخاص بك بنجاح ، ",
+
 
 
     "oh_retailer":"المتاجر",
-    "oh_retailer_time":"10:00 AM - 10:00 PM (يوم من أيام الأسبوع)\n10:00 AM - 11:00 PM (عطلة نهاية الأسبوع)",
+    "oh_retailer_time_part_1":"10:00 صباحاً - 10:00 مساءً (أيام الأسبوع)",
+    "oh_retailer_time_part_2":"10:00 صباحاً - 11:00 مساءً (أيام نهاية الأسبوع)",
 
     "oh_rest":"المطاعم داخل المارينا مول",
-    "oh_rest_time":"09:00 AM - 10:00 PM",
+    "oh_rest_time":"09:00 صباحاً - 10:00 مساءً",
 
 
     "oh_movie":"سينسكيب",
-    "oh_movie_time":"12:00 PM - منتصف الليل",
+    "oh_movie_time_part_1":"مساءً - منتصف الليل ",
+    "oh_movie_time_part_2":"12:00",
+
+    "change_password":"تغيير كلمة المرور",
 
 
     "oh_hotel":"المطاعم داخل مارينا كريسنت",
-    "oh_hotel_time":"07:00 AM - 11:00 PM",
+    "oh_hotel_time":"07:00 صباحاً - 11:00 مساءً",
 
-    "btx_share":":مشاركة",
+    "btx_share":"مشاركة:",
 
     
     "logout_title":"تسجيل خروج",

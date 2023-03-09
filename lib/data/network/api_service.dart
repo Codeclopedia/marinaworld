@@ -446,7 +446,7 @@ class ApiService {
       _dio.options.headers['x_auth_token'] = authToken;
       final response =
           await _dio.post('${baseUrl}user/update/$userId', data: data);
-
+      print(response.statusMessage);
       // print('UpdateUser=> ${jsonEncode(response.data)}');
       if (response.statusCode == 200) {
         return BaseResponse.fromJson(response.data);

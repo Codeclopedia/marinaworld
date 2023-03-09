@@ -446,7 +446,7 @@ class LeasingScreen extends HookWidget {
             color: AppColors.primaryColor,
           ),
         ),
-        dropdownColor: const Color(0xFFF5FCFF),
+        dropdownColor: const Color(0xFFF0F0F0),
         hint: Container(
           // width: 75.w,
           // width: double.infinity,

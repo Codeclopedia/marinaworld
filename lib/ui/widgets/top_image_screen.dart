@@ -57,21 +57,18 @@ class TopImageScreen extends StatelessWidget {
             ),
           ],
         ),
-        Positioned(
-            top: 1.w,
-            left: 1.w,
-            child: onBack != null
-                ? SafeArea(
-                    bottom: false,
-                    child: IconButton(
-                      onPressed: () => onBack!(),
-                      icon: const Icon(
-                        Icons.arrow_back,
-                        color: Colors.white,
-                      ),
-                    ),
-                  )
-                : const SizedBox.shrink()),
+        onBack != null
+            ? SafeArea(
+                bottom: false,
+                child: IconButton(
+                  onPressed: () => onBack!(),
+                  icon: const Icon(
+                    Icons.arrow_back,
+                    color: Colors.white,
+                  ),
+                ),
+              )
+            : const SizedBox.shrink(),
       ],
     );
   }

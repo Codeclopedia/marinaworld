@@ -1,6 +1,7 @@
 // ignore_for_file: use_build_context_synchronously
 
 import 'package:flutter/gestures.dart';
+import 'package:marina_mall/controller/dataproviders.dart';
 
 import 'package:pinput/pinput.dart';
 import '/controller/otp_timer.dart';
@@ -39,6 +40,7 @@ class LoginMobileScreen extends HookConsumerWidget {
     final mobileTextController = useTextEditingController(text: '');
     final isOtpSent = ref.watch(loginOtpGeneratedProvider);
     final enteredOTP = ref.watch(loginEnteredOTPProvider);
+    final bool isArabic = ref.watch(languageStateProvider) == langArabic;
 
     // final authProvider = ref.watch(authDataSourceProvider);
     return BaseWilPopupScreen(
@@ -49,7 +51,7 @@ class LoginMobileScreen extends HookConsumerWidget {
       child: Scaffold(
         body: TopImageScreen(
           onBack: () =>
-                Navigator.pushReplacementNamed(context, RouteNames.login),
+              Navigator.pushReplacementNamed(context, RouteNames.login),
           imageName: 'otp_bg.png',
           body: SingleChildScrollView(
             child: Form(
@@ -93,6 +95,7 @@ class LoginMobileScreen extends HookConsumerWidget {
                           padding: EdgeInsets.only(left: 2.w),
                           child: Text(
                             '+965 ',
+                            textDirection: TextDirection.ltr,
                             style: normalTextStyle.copyWith(
                               color: AppColors.primaryColor,
                               fontWeight: FontWeight.bold,

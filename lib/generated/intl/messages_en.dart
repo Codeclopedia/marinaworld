@@ -257,8 +257,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "oh_hotel_time":
             MessageLookupByLibrary.simpleMessage("07:00 AM - 11:00 PM"),
         "oh_movie": MessageLookupByLibrary.simpleMessage("Cinescape"),
-        "oh_movie_time":
-            MessageLookupByLibrary.simpleMessage("12:00 PM - Midnight"),
+        "oh_movie_time_part_1":
+            MessageLookupByLibrary.simpleMessage("Midnight"),
+        "oh_movie_time_part_2":
+            MessageLookupByLibrary.simpleMessage("12:00 PM - "),
         "oh_rest":
             MessageLookupByLibrary.simpleMessage("Restaurants Inside The Mall"),
         "oh_rest_time":
@@ -266,6 +268,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "oh_retailer": MessageLookupByLibrary.simpleMessage("All Retailers"),
         "oh_retailer_time": MessageLookupByLibrary.simpleMessage(
             "10:00 AM - 10:00 PM (Weekdays)\n10:00 AM - 11:00 PM (Weekends)"),
+        "oh_retailer_time_part_1": MessageLookupByLibrary.simpleMessage(
+            "10:00 AM - 10:00 PM (Weekdays)"),
+        "oh_retailer_time_part_2": MessageLookupByLibrary.simpleMessage(
+            "10:00 AM - 11:00 PM (Weekends)"),
         "otp_login_btn_resend":
             MessageLookupByLibrary.simpleMessage("Resend OTP"),
         "otp_login_btn_send": MessageLookupByLibrary.simpleMessage("Send OTP"),
